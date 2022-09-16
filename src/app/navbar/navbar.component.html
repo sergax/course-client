@@ -1,0 +1,20 @@
+<mat-toolbar>
+  <div>
+    <span>
+      <div class="sidebarToggle" (click)="openSideBar()">
+        <div class="spinner top"></div>
+        <div class="spinner center"></div>
+        <div class="spinner bottom"></div>
+      </div>
+    </span>
+    <span>
+      course
+      </span>
+  </div>
+  <div>
+    <!--    <span *ngIf="isAuth"><a routerLink="profile">Courses</a></span>-->
+    <span *ngIf="!isAuth"><a routerLink="login">Login</a></span>
+    <span *ngIf="isAuth"><a routerLink="login" (click)="onLogout()">Logout</a></span>
+  </div>
+</mat-toolbar>
+

@@ -1,0 +1,32 @@
+mat-toolbar {
+  background-color: #4CAF50;
+  box-shadow: 0 0 0px 0 rgba(0, 0, 0, 0.2), 0 3px 5px 0 rgba(0, 0, 0, 0.24);
+  justify-content: space-between;
+}
+
+span {
+  padding-right: 1rem;
+}
+
+a {
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+.sidebarToggle {
+  width: 22px;
+  height: 22px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.spinner {
+  height: 3px;
+  background: #fff;
+  transition: 0.3s;
+}
+
+.spinner.center,
+.spinner.bottom {
+  margin-top: 3px;
+}

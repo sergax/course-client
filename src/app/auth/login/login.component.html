@@ -1,0 +1,32 @@
+<div class="login-page">
+  <div class="form">
+    <form [formGroup]="exform">
+      <div>
+        <input type="text"
+               formControlName="email"
+               class="form-control"
+               id="loginUsername"
+               placeholder="Enter email">
+        <small *ngIf="email!.invalid && email!.touched">Please, enter a valid email</small>
+      </div>
+      <div>
+        <input type="password"
+               formControlName="password"
+               class="form-control"
+               id="loginPassword"
+               placeholder="Password">
+        <small *ngIf="password!.invalid && password!.touched">Password should be at least 8 characters long</small>
+        <small *ngIf="!isAuthorized">Login or password are not correct</small>
+      </div>
+      <button type="submit"
+              (click)="onLogin()"
+              [disabled]="exform.invalid"
+              class="accent">Login <i class="fas fa-sign-in-alt"></i></button>
+      <div class="form-group form-check">
+        <a [routerLink]="['/forgot-password']">Forgot Password</a><br>
+        <a [routerLink]="['/registration']">Registration</a>
+      </div>
+    </form>
+  </div>
+</div>
+

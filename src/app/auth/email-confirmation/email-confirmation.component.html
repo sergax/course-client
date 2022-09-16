@@ -1,0 +1,25 @@
+<div class="confirmation-page">
+  <div *ngIf="!isQueryParamPresent">
+    <h1 class="warning">Link is corrupted</h1>
+  </div>
+  <div class="form" *ngIf="!isConfirmed && isQueryParamPresent">
+    <form [formGroup]="codeConfirmationForm">
+      <div>
+        <input type="text"
+               formControlName="code"
+               class="form-control"
+               id="code"
+               placeholder="Confirmation code">
+        <small *ngIf="code!.invalid && code!.touched" class="warning">Confirmation code can only contain 6 digits</small>
+        <small *ngIf="isCodeWrong" class="warning">Your code wrong, try again</small>
+      </div>
+      <button type="submit"
+              (click)="onConfirmation()"
+              [disabled]="codeConfirmationForm.invalid"
+              class="accent">Confirm<i class="fas fa-sign-in-alt"></i></button>
+    </form>
+  </div>
+  <div *ngIf="isConfirmed">
+    <h1 class="success-message">Your email is successfully confirmed! Now you can login</h1>
+  </div>
+</div>
