@@ -4,6 +4,6 @@ const app = express();
 app.use(express.static(__dirname + '/dist/app-course-client'));
 app.get('/*', function(req,res) {
   res.sendFile(path.join(__dirname+
-    '/dist/<app-name>/index.html'));});
+    '/dist/app-course-client/index.html'));});
 app.listen(process.env.PORT || 8080);
 
