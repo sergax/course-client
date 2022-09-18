@@ -1,9 +1,9 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-app.use(express.static(__dirname + '/dist/app-course-client'));
+app.use(express.static(__dirname + '/dist/course-client'));
 app.get('/*', function(req,res) {
   res.sendFile(path.join(__dirname+
-    '/dist/app-course-client/index.html'));});
+    '/dist/course-client/index.html'));});
 app.listen(process.env.PORT || 8080);
 
