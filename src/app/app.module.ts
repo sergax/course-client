@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import {SidebarComponent} from "./sidebar/sidebar.component";
 import {NavbarComponent} from "./navbar/navbar.component";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {
@@ -10,21 +9,27 @@ import {
   RouterOutlet
 } from "@angular/router";
 import {MatToolbarModule} from "@angular/material/toolbar";
+import {LoginComponent} from "./auth/login/login.component";
+import {RegistrationComponent} from "./auth/registration/registration.component";
+import {EmailConfirmationComponent} from "./auth/email-confirmation/email-confirmation.component";
+import {ReactiveFormsModule} from "@angular/forms";
+import {AuthService} from "./auth/auth.service";
+import {HttpClientModule} from "@angular/common/http";
+import {AuthModule} from "./auth/auth.module";
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    SidebarComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
-    MatSidenavModule,
-    RouterOutlet,
+    HttpClientModule,
+    AppRoutingModule,
     MatToolbarModule,
-    RouterLink
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

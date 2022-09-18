@@ -30,7 +30,7 @@
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background: #4CAF50;
+  background: lightskyblue;
   width: 100%;
   border: 0;
   padding: 15px;
@@ -39,7 +39,7 @@
   cursor: pointer;
 }
 .form button:hover,.form button:active,.form button:focus {
-  background: #43A047;
+  background: lightskyblue;
 }
 .form .message {
   margin: 15px 0 0;
@@ -47,7 +47,7 @@
   font-size: 12px;
 }
 .form .message a {
-  color: #4CAF50;
+  color: lightskyblue;
   text-decoration: none;
 }
 .form .register-form {
@@ -90,17 +90,17 @@
   border:1px solid red;
 }
 .form-control.ng-touched.ng-valid {
-  border:1px solid green;
+  border: lightskyblue;
 }
 small {
   color: red;
 }
 body {
-  background: #76b852; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-  background: -moz-linear-gradient(right, #76b852, #8DC26F);
-  background: -o-linear-gradient(right, #76b852, #8DC26F);
-  background: linear-gradient(to left, #76b852, #8DC26F);
+  background: lightskyblue; /* fallback for old browsers */
+  background: -webkit-linear-gradient(right, lightskyblue);
+  background: -moz-linear-gradient(right, lightskyblue);
+  background: -o-linear-gradient(right, lightskyblue);
+  background: linear-gradient(to left, lightskyblue);
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

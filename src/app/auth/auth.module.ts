@@ -21,10 +21,7 @@ import {AngularMaterialModule} from "../angular-material.module";
         AngularMaterialModule,
         BrowserModule,
         AppRoutingModule,
-        HttpClientModule,
-        CommonModule,
-        UserModule,
-        FormsModule
+        HttpClientModule
     ]
 })
 export class AuthModule { }
