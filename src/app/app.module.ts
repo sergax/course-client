@@ -9,10 +9,6 @@ import {
   RouterOutlet
 } from "@angular/router";
 import {MatToolbarModule} from "@angular/material/toolbar";
-import {LoginComponent} from "./auth/login/login.component";
-import {RegistrationComponent} from "./auth/registration/registration.component";
-import {EmailConfirmationComponent} from "./auth/email-confirmation/email-confirmation.component";
-import {ReactiveFormsModule} from "@angular/forms";
 import {AuthService} from "./auth/auth.service";
 import {HttpClientModule} from "@angular/common/http";
 import {AuthModule} from "./auth/auth.module";
@@ -28,6 +24,8 @@ import {AppRoutingModule} from "./app-routing.module";
     HttpClientModule,
     AppRoutingModule,
     MatToolbarModule,
+    RouterLink,
+    RouterOutlet
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

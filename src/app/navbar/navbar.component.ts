@@ -26,8 +26,4 @@ export class NavbarComponent implements OnInit {
     this.authService.logout();
   }
 
-  openSideBar() {
-    this.eventEmitterService.onOpenSidebarClick();
-  }
-
 }

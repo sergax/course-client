@@ -97,10 +97,10 @@ small {
 }
 body {
   background: lightskyblue; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, lightskyblue);
-  background: -moz-linear-gradient(right, lightskyblue);
-  background: -o-linear-gradient(right, lightskyblue);
-  background: linear-gradient(to left, lightskyblue);
+  background: -webkit-linear-gradient(right, deepskyblue, lightskyblue);
+  background: -moz-linear-gradient(right, deepskyblue, lightskyblue);
+  background: -o-linear-gradient(right, deepskyblue, lightskyblue);
+  background: linear-gradient(to left, deepskyblue, lightskyblue);
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
