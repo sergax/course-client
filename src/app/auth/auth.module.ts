@@ -4,11 +4,11 @@ import {LoginComponent} from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 import {BrowserModule} from "@angular/platform-browser";
-import {AppRoutingModule} from '../../app-routing.module';
+import {AppRoutingModule} from '../app-routing.module';
 import {HttpClientModule} from "@angular/common/http";
 import {RegistrationComponent} from './registration/registration.component';
 import {EmailConfirmationComponent} from './email-confirmation/email-confirmation.component';
-import {AngularMaterialModule} from "../../angular-material.module";
+import {AngularMaterialModule} from "../angular-material.module";
 
 @NgModule({
   declarations: [

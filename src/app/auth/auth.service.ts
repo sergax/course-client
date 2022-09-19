@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
-import {environment} from "../../../environments/environment";
+import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {AuthData} from "./auth-data.model";
 import {BehaviorSubject, Observable, Subject} from "rxjs";
-import {User} from "../../model/user.model";
+import {User} from "../model/user.model";
 import {RegistrationData} from "./registration-data";
 import {CodeConfirmationData} from "./code-confirmation-data";
 
