@@ -11,15 +11,16 @@ import {
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {AuthService} from "./component/auth/auth.service";
 import {HttpClientModule} from "@angular/common/http";
-import {AuthModule} from "./component/auth/auth.module";
 import {AppRoutingModule} from "./app-routing.module";
 import {CoursesComponent} from "./component/courses/courses.component";
+import {CoursedetailComponent} from "./component/coursedetail/coursedetail.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    CoursesComponent
+    CoursesComponent,
+    CoursedetailComponent
   ],
   imports: [
     BrowserModule,
