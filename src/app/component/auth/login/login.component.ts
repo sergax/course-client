@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     this.authService.loginSubject.subscribe(value => {
       this.isAuthorized = value;
       if (value) {
-        this.router.navigate(['profile']);
+        this.router.navigate(['courses']);
       }
     })
   }
