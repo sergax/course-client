@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from "./auth/auth.service";
 import {Router} from "@angular/router";
+import {AuthService} from "./auth/auth.service";
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,6 @@ export class AppComponent implements OnInit {
   title = "Welcome students 🚀"
 
   constructor(
-    private router: Router,
     private authService: AuthService) {
   }
 

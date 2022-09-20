@@ -5,17 +5,16 @@ import {AuthGuard} from "./auth/auth.guard";
 import {LoginComponent} from "./auth/login/login.component";
 import {RegistrationComponent} from "./auth/registration/registration.component";
 import {EmailConfirmationComponent} from "./auth/email-confirmation/email-confirmation.component";
-import {CoursesComponent} from "./component/courses/courses.component";
-import {CoursedetailComponent} from "./component/coursedetail/coursedetail.component";
-
+import {CourseComponent} from "./course/course.component";
+import {CourseDetailComponent} from "./course/courseDetail/course-detail.component";
 
 let routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'registration', component: RegistrationComponent},
   {path: 'confirmation', component: EmailConfirmationComponent},
-  {path: 'courses', component: CoursesComponent},
-  {path: 'course/:id', component: CoursedetailComponent},
-  {path: '**', component: CoursesComponent}
+  {path: 'courses', component: CourseComponent, canActivate: [AuthGuard]},
+  {path: 'courses/:id', component: CourseDetailComponent, canActivate: [AuthGuard]},
+  {path: '', component: LoginComponent}
 ]
 
 @NgModule({

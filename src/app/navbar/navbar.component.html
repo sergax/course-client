@@ -5,7 +5,6 @@
       </span>
   </div>
   <div>
-    <!--    <span *ngIf="isAuth"><a routerLink="profile">Courses</a></span>-->
     <span *ngIf="!isAuth"><a routerLink="login">Login</a></span>
     <span *ngIf="isAuth"><a routerLink="login" (click)="onLogout()">Logout</a></span>
   </div>

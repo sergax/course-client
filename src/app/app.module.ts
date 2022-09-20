@@ -1,36 +1,48 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppComponent } from './app.component';
+import {NgModule} from '@angular/core';
+import {AppComponent} from './app.component';
 import {NavbarComponent} from "./navbar/navbar.component";
-import {MatSidenavModule} from "@angular/material/sidenav";
-import {
-  RouterLink,
-  RouterOutlet
-} from "@angular/router";
-import {MatToolbarModule} from "@angular/material/toolbar";
 import {AuthService} from "./auth/auth.service";
-import {HttpClientModule} from "@angular/common/http";
+// import {CoursesComponent} from "./courses/courses.component";
+// import {CoursedetailComponent} from "./coursedetail/coursedetail.component";
+import {RouterLink, RouterModule, RouterOutlet} from "@angular/router";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {BrowserModule} from "@angular/platform-browser";
 import {AppRoutingModule} from "./app-routing.module";
-import {CoursesComponent} from "./component/courses/courses.component";
-import {CoursedetailComponent} from "./component/coursedetail/coursedetail.component";
+import {HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
+import {LoginComponent} from "./auth/login/login.component";
+import {RegistrationComponent} from "./auth/registration/registration.component";
+import {EmailConfirmationComponent} from "./auth/email-confirmation/email-confirmation.component";
+import {AngularMaterialModule} from "./angular-material.module";
+import {CommonModule} from "@angular/common";
+import {AuthModule} from "./auth/auth.module";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {CourseService} from "./course/course.service";
+import {CourseComponent} from "./course/course.component";
+import {CourseDetailComponent} from "./course/courseDetail/course-detail.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    CoursesComponent,
-    CoursedetailComponent
+    CourseComponent,
+    CourseDetailComponent
   ],
   imports: [
+    AngularMaterialModule,
     BrowserModule,
-    HttpClientModule,
     AppRoutingModule,
-    MatToolbarModule,
-    RouterLink,
-    RouterOutlet
+    HttpClientModule,
+    CommonModule,
+    FormsModule,
+    AuthModule,
+    BrowserAnimationsModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    CourseService
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

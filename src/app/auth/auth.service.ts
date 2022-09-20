@@ -3,10 +3,11 @@ import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {AuthData} from "./auth-data.model";
-import {BehaviorSubject, Observable, Subject} from "rxjs";
-import {User} from "../model/user.model";
+import {BehaviorSubject, Subject} from "rxjs";
 import {RegistrationData} from "./registration-data";
 import {CodeConfirmationData} from "./code-confirmation-data";
+// import {Course} from "../interface/course.interface";
+// import {User} from "../interface/user.interface";
 
 const BACKEND_URL = environment.apiUrl + '/v1';
 
@@ -53,14 +54,9 @@ export class AuthService {
         this.authStatusListener.next(true);
         this.isAdmin = role.toString().includes('ADMIN');
         this.saveAuthData(token, role);
-        this.router.navigate(['profile']);
+        this.router.navigate(['courses']);
       }
 
-      this.http.get<User>(BACKEND_URL + '/profile')
-        .subscribe(user => {
-          this._loginSubject.next(true);
-          this.saveUserData(user.id);
-        });
     }, error => {
       this.authStatusListener.next(false);
     });
@@ -69,7 +65,6 @@ export class AuthService {
   }
 
   logout() {
-    this.http.get(BACKEND_URL + '/profile/online/remove/' + sessionStorage.getItem("userId")).subscribe()
     this.isAuthenticated = false;
     this.authStatusListener.next(false);
     this.isAdmin = false;
