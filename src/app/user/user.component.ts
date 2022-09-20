@@ -25,6 +25,6 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authService.autoAuthUser();
+    // this.authService.autoAuthUser();
   }
 }
