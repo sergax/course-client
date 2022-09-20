@@ -3,7 +3,7 @@ import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {User} from "../model/user.model";
 
-const BACKEND_URL: string = environment.apiUrl + '/v1/users/'
+const BACKEND_URL: string = environment.apiUrl + '/v1/users'
 
 @Injectable()
 export class UserService {
@@ -15,6 +15,6 @@ export class UserService {
   }
 
   getUserById(id: bigint) {
-    return this.http.get<User>(BACKEND_URL + id);
+    return this.http.get<User>(BACKEND_URL + "/" + id);
   }
 }
