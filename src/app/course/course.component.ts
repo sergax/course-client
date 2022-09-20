@@ -4,6 +4,7 @@ import {Course} from "../model/course.model";
 import {CourseService} from "./course.service";
 import {MatDialog} from "@angular/material/dialog";
 import {Observable} from "rxjs";
+import {UserService} from "../user/user.service";
 
 @Component({
   selector: 'app-course',
@@ -12,12 +13,22 @@ import {Observable} from "rxjs";
 })
 export class CourseComponent implements OnInit {
   courses!: Array<Course>;
+  mentors!: Array<User>;
 
-  constructor(public courseService: CourseService,
-              private dialog: MatDialog) {
+  constructor(
+    public userService: UserService,
+    private courseService: CourseService,
+    private dialog: MatDialog) {
+
     this.courseService.getCourses().subscribe(
       courses => {
         this.courses = courses;
+      }
+    );
+
+    this.userService.getUsers().subscribe(
+      mentors => {
+        this.mentors = mentors;
       }
     )
   }

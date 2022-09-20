@@ -6,7 +6,7 @@ import {LoginComponent} from "./auth/login/login.component";
 import {RegistrationComponent} from "./auth/registration/registration.component";
 import {EmailConfirmationComponent} from "./auth/email-confirmation/email-confirmation.component";
 import {CourseComponent} from "./course/course.component";
-import {CourseDetailComponent} from "./course/courseDetail/course-detail.component";
+import {CourseDetailComponent} from "./course/course-detail/course-detail.component";
 
 let routes: Routes = [
   {path: 'login', component: LoginComponent},

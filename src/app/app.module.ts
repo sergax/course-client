@@ -12,8 +12,9 @@ import {AuthModule} from "./auth/auth.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CourseService} from "./course/course.service";
 import {CourseComponent} from "./course/course.component";
-import {CourseDetailComponent} from "./course/courseDetail/course-detail.component";
+import {CourseDetailComponent} from "./course/course-detail/course-detail.component";
 import {UserComponent} from "./user/user.component";
+import {UserService} from "./user/user.service";
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {UserComponent} from "./user/user.component";
   ],
   providers: [
     AuthService,
-    CourseService
+    CourseService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

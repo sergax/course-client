@@ -7,6 +7,7 @@ import {Course} from "../../model/course.model";
 import {CourseService} from "../course.service";
 import {Content} from "../../model/content.module";
 import {DomSanitizer} from "@angular/platform-browser";
+import {UserService} from "../../user/user.service";
 
 @Component({
   selector: 'app-course-detail',
@@ -15,7 +16,7 @@ import {DomSanitizer} from "@angular/platform-browser";
 })
 export class CourseDetailComponent implements OnInit {
   href: string = "";
-  mentor!: User;
+  mentor!: Array<User>;
   content!: Array<Content>;
   course!: Course;
   courses!: Array<Course>;
@@ -26,7 +27,7 @@ export class CourseDetailComponent implements OnInit {
   constructor(private sanitizer: DomSanitizer,
               private courseService: CourseService,
               private router: Router,
-              // private profileService: ProfileService,
+              private userService: UserService,
               private activatedRoute: ActivatedRoute) {
   }
 
