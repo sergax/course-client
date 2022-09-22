@@ -1,5 +1,5 @@
 <div class="registration-page">
-  <div class="form-group">
+  <div class="form">
     <form [formGroup]="registrationForm">
       <div>
         <input type="text"
@@ -40,15 +40,14 @@
                class="form-control"
                id="confirmPassword"
                placeholder="Confirm Password">
-        <small *ngIf="confirmPassword!.value != password!.value && confirmPassword!.touched">Passwords do not
-          match</small>
+        <small *ngIf="confirmPassword!.value != password!.value && confirmPassword!.touched">Passwords do not match</small>
       </div>
       <button type="submit"
               (click)="onRegistration()"
               [disabled]="registrationForm.invalid || confirmPassword!.value != password!.value"
               class="accent">Register<i class="fas fa-sign-in-alt"></i></button>
       <div class="form-group form-check">
-        <a [routerLink]="['/login']"> Login</a>
+        <a [routerLink]="['/login']">Login</a>
       </div>
     </form>
   </div>

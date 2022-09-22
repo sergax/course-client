@@ -14,7 +14,8 @@ export class LoginComponent implements OnInit {
 
   exform!: FormGroup;
 
-  constructor(public authService: AuthService, private router: Router) {
+  constructor(public authService: AuthService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -30,7 +31,7 @@ export class LoginComponent implements OnInit {
     this.authService.loginSubject.subscribe(value => {
       this.isAuthorized = value;
       if (value) {
-        this.router.navigate(['/courses']);
+        this.router.navigate(['courses']);
       }
     })
   }

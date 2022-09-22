@@ -1,0 +1,82 @@
+<div>
+  <button mat-icon-button
+          class="close-button"
+          [mat-dialog-close]="true"
+          (click)="onClose()">
+    <mat-icon class="close-icon" color="warn">close</mat-icon>
+  </button>
+  <form [formGroup]="updateForm" *ngIf="!isUpdated">
+    <div>
+      <h1>Edit Course</h1>
+    </div>
+    <div class="input-container">
+      <input type="string"
+             name="name"
+             formControlName="name"
+             required/>
+      <label>Name</label>
+    </div>
+
+    <div class="input-container">
+      <input type="string"
+             name="name"
+             formControlName="description"
+             required/>
+      <label>Description</label>
+    </div>
+
+    <div class="input-container">
+      <input type="string"
+             name="name"
+             formControlName="logoUrl"
+             required/>
+      <label>Logo</label>
+    </div>
+
+    <div class="input-container">
+      <input type="string"
+             name="name"
+             formControlName="movieUrl"
+             required/>
+      <label>Movie</label>
+    </div>
+
+    <div class="input-container">
+      <input type="string"
+             name="date"
+             formControlName="dateStart"
+             required/>
+      <label>Date start</label>
+    </div>
+
+    <div class="input-container">
+      <input type="string"
+             name="date"
+             formControlName="dateEnd"
+             required/>
+      <label>Date end</label>
+    </div>
+
+    <mat-form-field>
+      <mat-select>
+        <mat-option value="PUBLIC">PUBLIC</mat-option>
+        <mat-option value="PRIVATE">PRIVATE</mat-option>
+      </mat-select>
+      <mat-label>Select Status</mat-label>
+    </mat-form-field>
+
+    <div>
+      <button class="update-button-1"
+              type="submit"
+              (click)="onUpdate()"
+              [disabled]="updateForm.invalid">Update
+      </button>
+    </div>
+  </form>
+  <div *ngIf="isUpdated">
+    <h1 class="updated">
+      Your course is updated 🥰
+    </h1>
+  </div>
+</div>
+

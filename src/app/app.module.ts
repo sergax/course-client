@@ -4,7 +4,7 @@ import {NavbarComponent} from "./navbar/navbar.component";
 import {AuthService} from "./auth/auth.service";
 import {BrowserModule} from "@angular/platform-browser";
 import {AppRoutingModule} from "./app-routing.module";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import {AngularMaterialModule} from "./angular-material.module";
 import {CommonModule} from "@angular/common";
@@ -15,6 +15,10 @@ import {CourseComponent} from "./course/course.component";
 import {CourseDetailComponent} from "./course/course-detail/course-detail.component";
 import {UserComponent} from "./user/user.component";
 import {UserService} from "./user/user.service";
+import {CourseUpdateComponent} from "./course/course-update/course-update.component";
+import {MatSelectModule} from "@angular/material/select";
+import {UserModule} from "./user/user.module";
+import {AuthInterceptor} from "./auth/auth-interceptor";
 
 @NgModule({
   declarations: [
@@ -22,7 +26,8 @@ import {UserService} from "./user/user.service";
     NavbarComponent,
     CourseComponent,
     CourseDetailComponent,
-    UserComponent
+    CourseUpdateComponent,
+    UserComponent,
   ],
   imports: [
     AngularMaterialModule,
@@ -30,14 +35,17 @@ import {UserService} from "./user/user.service";
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
+    UserModule,
     FormsModule,
     AuthModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatSelectModule
   ],
   providers: [
     AuthService,
     CourseService,
-    UserService
+    UserService,
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
   ],
   bootstrap: [AppComponent]
 })

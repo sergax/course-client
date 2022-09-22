@@ -6,8 +6,7 @@ import {AuthData} from "./auth-data.model";
 import {BehaviorSubject, Subject} from "rxjs";
 import {RegistrationData} from "./registration-data";
 import {CodeConfirmationData} from "./code-confirmation-data";
-// import {Course} from "../interface/course.interface";
-// import {User} from "../interface/user.interface";
+import {User} from "../model/user.model";
 
 const BACKEND_URL = environment.apiUrl + '/v1';
 
@@ -56,7 +55,11 @@ export class AuthService {
         this.saveAuthData(token, role);
         this.router.navigate(['courses']);
       }
-
+      this.http.get<User>(BACKEND_URL + '/users')
+        .subscribe(user => {
+          this._loginSubject.next(true);
+          this.saveUserData(user.id);
+        });
     }, error => {
       this.authStatusListener.next(false);
     });

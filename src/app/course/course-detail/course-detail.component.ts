@@ -17,7 +17,7 @@ import {UserService} from "../../user/user.service";
 export class CourseDetailComponent implements OnInit {
   href: string = "";
   mentor!: Array<User>;
-  content!: Array<Content>;
+  // content!: Array<Content>;
   course!: Course;
   courses!: Array<Course>;
   mode: string;
@@ -45,12 +45,20 @@ export class CourseDetailComponent implements OnInit {
     );
   }
 
+  onUpdateCourseById(id: number, course: Course, mentor: User) {
+    this.courseService.getCourseById(id).subscribe(
+      course => {
+        this.course = course;
+      }
+    );
+  }
+
   getEmbedUrl(url: string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
   onGetContents(): Array<Content> {
-    return this.course.content;
+    return this.course.contents;
   }
 
   changeMode(mode: string) {

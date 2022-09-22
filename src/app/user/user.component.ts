@@ -11,20 +11,21 @@ import {Observable} from "rxjs";
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  users!: Array<User>
+  user!: User;
+  isAdmin!: boolean;
+  email!: string;
 
   constructor(
-    public userService: UserService,
+    private userService: UserService,
     private authService: AuthService) {
-
-    this.userService.getUsers().subscribe(
-      users => {
-        this.users = users;
-      }
-    )
+    this.isAdmin = authService.getIsAdmin();
   }
 
   ngOnInit(): void {
-    // this.authService.autoAuthUser();
+    this.userService.getUser().subscribe(user => {
+      this.user = user;
+      this.email = user.email;
+    });
+
   }
 }

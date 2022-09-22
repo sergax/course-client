@@ -3,8 +3,9 @@ import {User} from "../model/user.model";
 import {Course} from "../model/course.model";
 import {CourseService} from "./course.service";
 import {MatDialog} from "@angular/material/dialog";
-import {Observable} from "rxjs";
+import {CourseUpdateComponent} from "./course-update/course-update.component";
 import {UserService} from "../user/user.service";
+
 
 @Component({
   selector: 'app-course',
@@ -13,11 +14,11 @@ import {UserService} from "../user/user.service";
 })
 export class CourseComponent implements OnInit {
   courses!: Array<Course>;
-  mentors!: Array<User>;
+  mentor!: User;
 
   constructor(
-    public userService: UserService,
     private courseService: CourseService,
+    private userService: UserService,
     private dialog: MatDialog) {
 
     this.courseService.getCourses().subscribe(
@@ -26,28 +27,45 @@ export class CourseComponent implements OnInit {
       }
     );
 
-    this.userService.getUsers().subscribe(
-      mentors => {
-        this.mentors = mentors;
+    this.userService.getUser().subscribe(
+      mentor => {
+        this.mentor = mentor;
       }
-    )
+    );
+
   }
 
   ngOnInit(): void {
+
+
   }
 
+  onUpdate(id: number,
+           name: string,
+           description: string,
+           logoUrl: string,
+           movieUrl: string,
+           dateStart: Date,
+           dateEnd: Date,
+           status: string,
+           principal: User) {
+    this.dialog.open(CourseUpdateComponent, {
+      width: '330px',
+      disableClose: true,
+      data: {
+        id: id,
+        name: name,
+        description: description,
+        logoUrl: logoUrl,
+        movieUrl: movieUrl,
+        dateStart: dateStart,
+        dateEnd: dateEnd,
+        status: status,
+        principal: principal
+      }
+    })
+  }
 }
-
-// onUpdate(id: bigint) {
-//   this.dialog.open(UpdateSlotComponent, {
-//     width: '330px',
-//     disableClose: true,
-//     data: {
-//       groupLimit: groupLimit,
-//       id: id
-//     }
-//   })
-// }
 
 // onCreate() {
 //   this.dialog.open(CreateSlotComponent, {

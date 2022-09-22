@@ -1,43 +1,54 @@
 <div class="course" *ngFor="let course of courses">
-  <div class="course" *ngFor="let mentor of mentors">
-    <table class="table align-middle mb-0 bg-white">
-      <thead class="bg-light">
-      <tr>
-        <th>Logo</th>
-        <th>ID/Name</th>
-        <th>Description</th>
-        <th>Status</th>
-        <th>Date start/end</th>
-        <th>Mentor</th>
-        <th>Actions</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>
-          <div class="d-flex align-items-center">
-            <img
-              [src]=course.logoUrl
-              alt=""
-              style="width: 45px; height: 45px"
-              class="rounded-circle"/>
-          </div>
-        </td>
-        <div class="ms-3">
-          <p class="text-muted mb-0">{{ course.id }} / {{ course.name }}</p>
+  <table class="table align-middle mb-0 bg-white">
+    <thead class="bg-light">
+    <tr>
+      <th>Logo</th>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Date start</th>
+      <th>Date end</th>
+      <th>Mentor ID</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <div class="d-flex align-items-center">
+          <img
+            [src]=course.logoUrl
+            alt=""
+            style="width: 45px; height: 45px"
+            class="rounded-circle"/>
         </div>
-        <td>
-          <p class="fw-normal mb-1">{{ course.description }}</p>
-        </td>
-        <td>
-          <span class="badge badge-success rounded-pill d-inline">{{ course.status }}</span>
-        </td>
-        <p class="text-muted mb-0">{{ course.dateStart }} / {{ course.dateEnd }}</p>
-        <td>{{ mentor.firstName }} {{ mentor.lastName }}</td>
-        <td>
-          <button [routerLink]="['/courses', course.id]" class="btn btn-outline-primary">View</button>
-        </td>
-      </tbody>
-    </table>
-  </div>
+      </td>
+      <td>
+        <p class="fw-normal mb-1">{{ course.id }}</p>
+      </td>
+      <td>
+        <p class="fw-normal mb-1">{{ course.name }}</p>
+      </td>
+      <td>
+        <p class="fw-normal mb-1">{{ course.description }}</p>
+      </td>
+      <td>
+        <p class="text-muted mb-0">{{ course.dateStart }}</p>
+      </td>
+      <td>
+        <p class="text-muted mb-0">{{ course.dateEnd }}</p>
+      </td>
+      <td>
+        <p class="text-muted mb-0">{{ course.mentorsId }}</p>
+      </td>
+      <td>
+        <button (click)="onUpdate(course.id, course.name, course.description, course.logoUrl, course.movieUrl, course.dateStart, course.dateEnd,
+        course.status, mentor)" class="btn btn-outline-primary">Edit
+        </button>
+        <button [routerLink]="['/courses', course.id]" class="btn btn-outline-primary">View</button>
+      </td>
+    </tbody>
+  </table>
 </div>
+
+

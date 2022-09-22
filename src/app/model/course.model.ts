@@ -1,4 +1,3 @@
-import {User} from "./user.model";
 import {Content} from "./content.module";
 
 export class Course {
@@ -10,10 +9,10 @@ export class Course {
   status: string;
   logoUrl: string;
   movieUrl: string;
-  mentor: Array<User>;
-  content: Array<Content>
+  mentorsId: Array<bigint>;
+  contents: Array<Content>
 
-  constructor(id: number, name: string, description: string, dateStart: Date, dateEnd: Date, status: string, logoUrl: string, movieUrl: string, mentor: Array<User>, content: Array<Content>) {
+  constructor(id: number, name: string, description: string, dateStart: Date, dateEnd: Date, status: string, logoUrl: string, movieUrl: string, mentorsId: Array<bigint>, contents: Array<Content>) {
     this.id = id;
     this.name = name;
     this.description = description;
@@ -22,7 +21,7 @@ export class Course {
     this.status = status;
     this.logoUrl = logoUrl;
     this.movieUrl = movieUrl;
-    this.mentor = mentor;
-    this.content = content;
+    this.mentorsId = mentorsId;
+    this.contents = contents;
   }
 }

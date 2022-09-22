@@ -7,14 +7,12 @@ const BACKEND_URL: string = environment.apiUrl + '/v1/users'
 
 @Injectable()
 export class UserService {
+
   constructor(private http: HttpClient) {
   }
 
-  getUsers() {
-    return this.http.get<Array<User>>(BACKEND_URL);
+  getUser() {
+    return this.http.get<User>(BACKEND_URL);
   }
 
-  getUserById(id: bigint) {
-    return this.http.get<User>(BACKEND_URL + "/" + id);
-  }
 }
