@@ -5,9 +5,9 @@
           (click)="onClose()">
     <mat-icon class="close-icon" color="warn">close</mat-icon>
   </button>
-  <form [formGroup]="updateForm" *ngIf="!isUpdated">
+  <form [formGroup]="createForm" *ngIf="!isCreated">
     <div>
-      <h1>Edit Course</h1>
+      <h1>Crete course</h1>
     </div>
     <div class="input-container">
       <input type="string"
@@ -44,46 +44,21 @@
     <div class="input-container">
       <input type="string"
              name="date"
-             formControlName="dateStart"
-             required/>
-      <label>Date start</label>
-    </div>
-
-    <div class="input-container">
-      <input type="string"
-             name="date"
              formControlName="dateEnd"
              required/>
       <label>Date end</label>
     </div>
 
-    <div class="input-container">
-      <input type="string"
-             name="name"
-             formControlName="status"
-             min="PRIVATE" max="PUBLIC" required/>
-      <span class="validity"></span>
-      <datalist id="defaultStatus">
-        <option value="PRIVATE">
-        <option value="PUBLIC">
-      </datalist>
-      <small *ngIf="status!.invalid && status!.touched">Please, enter a valid STATUS</small>
-      <br>
-      <a>Status (PRIVATE/PUBLIC)</a>
-    </div>
+    <button class="create-button-1"
+            type="submit"
+            (click)="onCreate( )"
+            [disabled]="createForm.invalid">CREATE
+    </button>
 
-    <div>
-      <button class="update-button-1"
-              type="submit"
-              (click)="onUpdate()"
-              [disabled]="updateForm.invalid">Update
-      </button>
+    <div *ngIf="isCreated">
+      <h1 class="created">
+        Your course is Created!
+      </h1>
     </div>
   </form>
-  <div *ngIf="isUpdated">
-    <h1 class="updated">
-      Your course is updated 🥰
-    </h1>
-  </div>
 </div>
-

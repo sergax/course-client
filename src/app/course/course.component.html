@@ -1,54 +1,54 @@
-<div class="course" *ngFor="let course of courses">
-  <table class="table align-middle mb-0 bg-white">
-    <thead class="bg-light">
-    <tr>
-      <th>Logo</th>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Date start</th>
-      <th>Date end</th>
-      <th>Mentor ID</th>
-      <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td>
-        <div class="d-flex align-items-center">
-          <img
-            [src]=course.logoUrl
-            alt=""
-            style="width: 45px; height: 45px"
-            class="rounded-circle"/>
+<div class="mat-card-cvr" *ngFor="let course of courses">
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class>
+          <div class="d-flex align-items-center">
+            <img
+              [src]=course.logoUrl
+              alt=""
+              style="width: 50px; height: 50px"
+              class="rounded-circle"/>
+          </div>
         </div>
-      </td>
-      <td>
-        <p class="fw-normal mb-1">{{ course.id }}</p>
-      </td>
-      <td>
-        <p class="fw-normal mb-1">{{ course.name }}</p>
-      </td>
-      <td>
+        <mat-card-title>
+          <p class="fw-normal mb-1"> ID: {{ course.id }}</p>
+          <p class="fw-normal mb-1"> Name: {{ course.name }}</p>
+        </mat-card-title>
+        <mat-card-subtitle>
+          <p class="fw-normal mb-1"> Mentor ID: {{ course.mentorsId }}</p>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <iframe [src]="getEmbedUrl(course.movieUrl)" width="600" height="400"
+              webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      <mat-card-content>
         <p class="fw-normal mb-1">{{ course.description }}</p>
-      </td>
-      <td>
-        <p class="text-muted mb-0">{{ course.dateStart }}</p>
-      </td>
-      <td>
-        <p class="text-muted mb-0">{{ course.dateEnd }}</p>
-      </td>
-      <td>
-        <p class="text-muted mb-0">{{ course.mentorsId }}</p>
-      </td>
-      <td>
-        <button (click)="onUpdate(course.id, course.name, course.description, course.logoUrl, course.movieUrl, course.dateStart, course.dateEnd,
-        course.status, mentor)" class="btn btn-outline-primary">Edit
-        </button>
-        <button [routerLink]="['/courses', course.id]" class="btn btn-outline-primary">View</button>
-      </td>
-    </tbody>
-  </table>
+      </mat-card-content>
+      <mat-card-actions>
+        <td>
+        <button mat-button>like ❤</button>
+        </td>
+        <td>
+          <button (click)="onUpdate(course.id, course.name, course.description, course.logoUrl, course.movieUrl, course.dateStart, course.dateEnd,
+        course.status, mentor)" mat-button>edit 🔧
+          </button>
+        </td>
+        <td>
+          <button [routerLink]="['/courses', course.id]" mat-button>view 🔍</button>
+        </td>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 </div>
+
+
+
+
+
+
+
+
+
+
 
 

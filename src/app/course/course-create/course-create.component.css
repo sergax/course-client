@@ -34,11 +34,7 @@
   color: lightskyblue;
 }
 
-small {
-  color: red;
-}
-
-.update_button-1 {
+.created_button-1 {
   background-color: lightskyblue;
   border: none;
   color: white;
@@ -59,5 +55,5 @@ small {
 }
 
 .created {
-  color: #0a64a1;
+  color: #08466b;
 }

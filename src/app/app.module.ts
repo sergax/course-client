@@ -19,6 +19,7 @@ import {CourseUpdateComponent} from "./course/course-update/course-update.compon
 import {MatSelectModule} from "@angular/material/select";
 import {UserModule} from "./user/user.module";
 import {AuthInterceptor} from "./auth/auth-interceptor";
+import {CourseCreateComponent} from "./course/course-create/course-create.component";
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {AuthInterceptor} from "./auth/auth-interceptor";
     CourseComponent,
     CourseDetailComponent,
     CourseUpdateComponent,
+    CourseCreateComponent,
     UserComponent,
   ],
   imports: [

@@ -5,6 +5,8 @@ import {CourseService} from "./course.service";
 import {MatDialog} from "@angular/material/dialog";
 import {CourseUpdateComponent} from "./course-update/course-update.component";
 import {UserService} from "../user/user.service";
+import {CourseCreateComponent} from "./course-create/course-create.component";
+import {DomSanitizer} from "@angular/platform-browser";
 
 
 @Component({
@@ -16,7 +18,7 @@ export class CourseComponent implements OnInit {
   courses!: Array<Course>;
   mentor!: User;
 
-  constructor(
+  constructor(private sanitizer: DomSanitizer,
     private courseService: CourseService,
     private userService: UserService,
     private dialog: MatDialog) {
@@ -38,6 +40,10 @@ export class CourseComponent implements OnInit {
   ngOnInit(): void {
 
 
+  }
+
+  getEmbedUrl(url: string) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
   onUpdate(id: number,
@@ -65,15 +71,29 @@ export class CourseComponent implements OnInit {
       }
     })
   }
-}
 
-// onCreate() {
-//   this.dialog.open(CreateSlotComponent, {
-//     width: '330px',
-//     disableClose: true,
-//     data: {}
-//   })
-// }
+  onCreate(name: string,
+           description: string,
+           logoUrl: string,
+           movieUrl: string,
+           dateEnd: Date,
+           status: string,
+           principal: User) {
+    this.dialog.open(CourseCreateComponent, {
+      width: '330px',
+      disableClose: true,
+      data: {
+        name: name,
+        description: description,
+        logoUrl: logoUrl,
+        movieUrl: movieUrl,
+        dateEnd: dateEnd,
+        status: status,
+        principal: principal
+      }
+    })
+  }
+}
 
 // onDelete(id: bigint) {
 //   this.slotService.delete(id);

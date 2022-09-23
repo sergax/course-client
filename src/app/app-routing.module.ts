@@ -8,12 +8,14 @@ import {EmailConfirmationComponent} from "./auth/email-confirmation/email-confir
 import {CourseComponent} from "./course/course.component";
 import {CourseDetailComponent} from "./course/course-detail/course-detail.component";
 import {CourseUpdateComponent} from "./course/course-update/course-update.component";
+import {CourseCreateComponent} from "./course/course-create/course-create.component";
 
 let routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'registration', component: RegistrationComponent},
   {path: 'confirmation', component: EmailConfirmationComponent},
   {path: 'courses', component: CourseComponent, canActivate: [AuthGuard]},
+  {path: 'courses', component: CourseCreateComponent, canActivate: [AuthGuard]},
   {path: 'courses/:id', component: CourseDetailComponent, canActivate: [AuthGuard]},
   {path: 'courses/:id', component: CourseUpdateComponent, canActivate: [AuthGuard]},
   {path: '', component: LoginComponent}

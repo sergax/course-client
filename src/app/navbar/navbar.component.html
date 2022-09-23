@@ -1,12 +1,12 @@
 <mat-toolbar>
   <div>
-    <span>
-      Course-client 🤓
-      </span>
+    <button
+      *ngIf="isAuth" mat-stroked-button><a routerLink="courses" (click)="onCreate()" >New Course 🚀</a>
+      </button>
   </div>
   <div>
-    <span *ngIf="!isAuth"><a routerLink="login">Login</a></span>
-    <span *ngIf="isAuth"><a routerLink="login" (click)="onLogout()">Logout</a></span>
+    <button *ngIf="!isAuth" mat-stroked-button><a routerLink="login">Login ✔</a></button>
+    <button *ngIf="isAuth" mat-stroked-button><a routerLink="login" (click)="onLogout()">Logout ✖</a></button>
   </div>
 </mat-toolbar>
 

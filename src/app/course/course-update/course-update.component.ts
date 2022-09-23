@@ -1,6 +1,5 @@
 import {Component, Inject, OnInit} from "@angular/core";
 import {CourseService} from "../course.service";
-import {DomSanitizer} from "@angular/platform-browser";
 import {FormControl, FormGroup} from "@angular/forms";
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 
@@ -13,11 +12,8 @@ export class CourseUpdateComponent implements OnInit {
   isUpdated: boolean = false;
   updateForm!: FormGroup;
 
-
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
-              private sanitizer: DomSanitizer,
               private courseService: CourseService) {
-
   }
 
   ngOnInit(): void {

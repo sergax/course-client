@@ -24,10 +24,22 @@ export class CourseService {
     return this.http.get<any>(BACKEND_URL + '/' + id);
   }
 
-  // createCourse(course: Course, mentor: User) {
-  //   mentor = this.mentor;
-  //   return this.http.post<Course>(BACKEND_URL, {course, mentor});
-  // }
+  createCourse(name: string,
+               description: string,
+               logoUrl: string,
+               movieUrl: string,
+               dateEnd: Date,
+               mentor: User
+  ) {
+    return this.http.post<Course>(BACKEND_URL, {
+      name,
+      description,
+      logoUrl,
+      movieUrl,
+      dateEnd,
+      mentor
+    });
+  }
 
   updateCourseById(id: number,
                    name: string,
@@ -51,5 +63,7 @@ export class CourseService {
       mentor
     });
   }
+
+
 
 }
