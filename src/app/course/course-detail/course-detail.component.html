@@ -19,80 +19,31 @@
       </div>
     </div>
     <div class="col-lg-8">
-      <div class="card">
-        <div class="card-body">
-          <div class="row mb-3">
-            <div class="col-sm-3">
-              <h6 class="mb-0">Name</h6>
+      <div *ngFor="let content of course.contents">
+        <div class="card">
+          <div class="card-body">
+            <h4>Content ID: {{ content.id }}</h4>
+            <h4>Content Name: {{ content.name }}</h4>
+            <h4>Content Text: {{ content.text }}</h4>
+            <h4>Content Type: {{ content.typeContent }}</h4>
+            <div *ngIf="content.movieUrl.length">
+              <iframe [src]="getEmbedUrl(content.movieUrl)" width="320" height="200"
+                      webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
             </div>
-            <div class="col-sm-9 text-secondary">
-              <input [disabled]="mode === 'locked'" type="text" class="form-control" [value]="course.name">
-            </div>
+            <h5 class="d-flex align-items-center mb-3">Content Movie</h5>
           </div>
-          <div class="row mb-3">
-            <div class="col-sm-3">
-              <h6 class="mb-0">Description</h6>
-            </div>
-            <div class="col-sm-9 text-secondary">
-              <input [disabled]="mode === 'locked'" type="text" class="form-control" [value]="course.description ">
-            </div>
-          </div>
-          <div class="row mb-3">
-            <div class="col-sm-3">
-              <h6 class="mb-0">Date of start</h6>
-            </div>
-            <div class="col-sm-9 text-secondary">
-              <input [disabled]="mode === 'locked'" type="text" class="form-control"
-                     value="{{ course.dateStart | date: 'mediumDate'}}">
-            </div>
-          </div>
-          <div class="row mb-3">
-            <div class="col-sm-3">
-              <h6 class="mb-0">Date of end</h6>
-            </div>
-            <div class="col-sm-9 text-secondary">
-              <input [disabled]="mode === 'locked'" type="text" class="form-control"
-                     value="{{ course.dateEnd | date: 'mediumDate'}}">
-            </div>
-          </div>
-
-          <div class="row mb-3">
-            <div class="col-sm-3">
-              <h6 class="mb-0">Mentor ID</h6>
-            </div>
-            <div class="col-sm-9 text-secondary">
-              <input [disabled]="mode === 'locked'" type="text" class="form-control"
-                     value="{{ course.mentorsId }}">
-            </div>
-          </div>
-
-          <div *ngFor="let content of course.contents">
-            <div class="row mb-3">
-              <div class="col-sm-3">
-                <h6 class="mb-0">Content</h6>
-              </div>
-              <div class="col-sm-9 text-secondary">
-                <input [disabled]="mode === 'locked'" type="text" class="form-control"
-                       value="{{ content.name }} / {{ content.text }}">
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-sm-3"></div>
-            <div class="col-sm-9 text-secondary">
-              <button (click)="changeMode(mode)" type="button" class="btn btn-primary px-4">{{ buttonText }}</button>
-            </div>
-          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3"></div>
         </div>
       </div>
       <div class="row">
         <div class="col-sm-12">
           <div class="card">
             <div class="card-body">
-              <h5 class="d-flex align-items-center mb-3">Movie</h5>
               <iframe [src]="getEmbedUrl(course.movieUrl)" width="320" height="200"
                       webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+              <h5 class="d-flex align-items-center mb-3">Course Movie</h5>
               <div class="map-wrapper">
                 <div class="map-border">
                   <div id="map"></div>

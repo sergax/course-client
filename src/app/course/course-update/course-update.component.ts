@@ -2,6 +2,9 @@ import {Component, Inject, OnInit} from "@angular/core";
 import {CourseService} from "../course.service";
 import {FormControl, FormGroup} from "@angular/forms";
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+import {UserService} from "../../user/user.service";
+import {User} from "../../model/user.model";
+import {Course} from "../../model/course.model";
 
 @Component({
   selector: 'app-course-update',
@@ -11,9 +14,23 @@ import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 export class CourseUpdateComponent implements OnInit {
   isUpdated: boolean = false;
   updateForm!: FormGroup;
+  user!: User;
+  course!: Course;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
+              private userService: UserService,
               private courseService: CourseService) {
+    this.courseService.getCourseById(this.data.id).subscribe(
+      course => {
+        this.course = course;
+      }
+    );
+
+    this.userService.getUser().subscribe(
+      user => {
+        this.user = user;
+      }
+    );
   }
 
   ngOnInit(): void {

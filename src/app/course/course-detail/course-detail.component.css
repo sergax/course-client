@@ -16,13 +16,13 @@
   margin-right: .5rem !important;
 }
 
-input:disabled {
-  border: 0;
-  outline: 0;
-  background: #F4F6F7;
-}
+/*input:disabled {*/
+/*  border: 0;*/
+/*  outline: 0;*/
+/*  background: #F4F6F7;*/
+/*}*/
 
-input:focus {
-  outline: 0;
-  border: 0;
-}
+/*input:focus {*/
+/*  outline: 0;*/
+/*  border: 0;*/
+/*}*/

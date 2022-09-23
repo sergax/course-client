@@ -2,6 +2,8 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {CourseService} from "../course.service";
 import {FormControl, FormGroup} from "@angular/forms";
+import {User} from "../../model/user.model";
+import {UserService} from "../../user/user.service";
 
 @Component({
   selector: 'app-course-create',
@@ -9,11 +11,14 @@ import {FormControl, FormGroup} from "@angular/forms";
   styleUrls: ['./course-create.component.css']
 })
 export class CourseCreateComponent implements OnInit {
+  isMentor: boolean = false;
   isCreated: boolean = false;
   createForm!: FormGroup;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
-              private courseService: CourseService) { }
+              private userService: UserService,
+              private courseService: CourseService) {
+  }
 
   ngOnInit(): void {
     this.createForm = new FormGroup({

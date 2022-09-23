@@ -3,13 +3,13 @@ export class Content {
   name: string;
   text: string;
   movieUrl: string;
-  type: string;
+  typeContent: string;
 
-  constructor(id: bigint, name: string, text: string, movieUrl: string, type: string) {
+  constructor(id: bigint, name: string, text: string, movieUrl: string, typeContent: string) {
     this.id = id;
     this.name = name;
     this.text = text;
     this.movieUrl = movieUrl;
-    this.type = type;
+    this.typeContent = typeContent;
   }
 }

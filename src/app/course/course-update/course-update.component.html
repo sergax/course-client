@@ -80,10 +80,16 @@
       </button>
     </div>
   </form>
+
   <div *ngIf="isUpdated">
     <h1 class="updated">
       Your course is updated 🥰
     </h1>
   </div>
+
+  <div *ngIf="!course.mentorsId.includes(user.id)">
+    <small>Sorry, it's not you course ✋ </small>
+  </div>
+
 </div>
 
