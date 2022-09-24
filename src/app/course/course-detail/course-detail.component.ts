@@ -5,9 +5,11 @@ import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {User} from "../../model/user.model";
 import {Course} from "../../model/course.model";
 import {CourseService} from "../course.service";
-import {Content} from "../../model/content.module";
+import {Content} from "../../model/content.model";
 import {DomSanitizer} from "@angular/platform-browser";
 import {UserService} from "../../user/user.service";
+import {CourseCreateComponent} from "../course-create/course-create.component";
+import {ContentCreateComponent} from "../../content/content-create/content-create.component";
 
 @Component({
   selector: 'app-course-detail',
@@ -16,17 +18,15 @@ import {UserService} from "../../user/user.service";
 })
 export class CourseDetailComponent implements OnInit {
   href: string = "";
-  mentor!: Array<User>;
-  // content!: Array<Content>;
   course!: Course;
   courses!: Array<Course>;
   mode: string;
-  buttonText: any;
   id!: number;
 
   constructor(private sanitizer: DomSanitizer,
               private courseService: CourseService,
               private router: Router,
+              private dialog: MatDialog,
               private userService: UserService,
               private activatedRoute: ActivatedRoute) {
   }
@@ -55,6 +55,15 @@ export class CourseDetailComponent implements OnInit {
 
   getEmbedUrl(url: string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+
+  onCreateContent() {
+    this.dialog.open(ContentCreateComponent, {
+      width: '330px',
+      disableClose: true,
+      data: {
+      }
+    })
   }
 
   onGetContents(): Array<Content> {

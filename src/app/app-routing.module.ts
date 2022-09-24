@@ -9,6 +9,8 @@ import {CourseComponent} from "./course/course.component";
 import {CourseDetailComponent} from "./course/course-detail/course-detail.component";
 import {CourseUpdateComponent} from "./course/course-update/course-update.component";
 import {CourseCreateComponent} from "./course/course-create/course-create.component";
+import {ContentCreateComponent} from "./content/content-create/content-create.component";
+import {CommonModule} from "@angular/common";
 
 let routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -18,11 +20,14 @@ let routes: Routes = [
   {path: 'courses', component: CourseCreateComponent, canActivate: [AuthGuard]},
   {path: 'courses/:id', component: CourseDetailComponent, canActivate: [AuthGuard]},
   {path: 'courses/:id', component: CourseUpdateComponent, canActivate: [AuthGuard]},
+  {path: 'courses/:courseId/contents', component: ContentCreateComponent, canActivate: [AuthGuard]},
   {path: '', component: LoginComponent}
 ]
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+      CommonModule,
+      RouterModule.forRoot(routes)],
   exports: [RouterModule],
   providers: [AuthGuard]
 })

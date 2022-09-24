@@ -1,4 +1,4 @@
-import {Content} from "./content.module";
+import {Content} from "./content.model";
 
 export class Course {
   id: number;

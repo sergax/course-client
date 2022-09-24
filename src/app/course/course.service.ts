@@ -4,7 +4,6 @@ import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs";
 import {Course} from "../model/course.model";
 import {User} from "../model/user.model";
-import {UserService} from "../user/user.service";
 
 const BACKEND_URL = environment.apiUrl + '/v1/courses';
 

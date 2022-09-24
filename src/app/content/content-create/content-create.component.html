@@ -1,0 +1,53 @@
+<div>
+    <button mat-icon-button
+            class="close-button"
+            [mat-dialog-close]="true"
+            (click)="onClose()">
+        <mat-icon class="close-icon" color="warn">close</mat-icon>
+    </button>
+    <form [formGroup]="createForm" *ngIf="!isCreated">
+        <div>
+            <h1>Crete content</h1>
+        </div>
+        <div class="input-container">
+            <input type="string"
+                   name="name"
+                   formControlName="name"
+                   required/>
+            <label>Name</label>
+        </div>
+
+        <div class="input-container">
+            <input type="string"
+                   name="name"
+                   formControlName="text"
+                   required/>
+            <label>Text</label>
+        </div>
+
+        <div class="input-container">
+            <input type="string"
+                   name="name"
+                   formControlName="movieUrl"
+                   required/>
+            <label>Movie</label>
+        </div>
+
+        <button class="created_button-1"
+                type="submit"
+                (click)="onCreate()"
+                [disabled]="createForm.invalid">CREATE
+        </button>
+
+        <div *ngIf="isCreated">
+            <h1 class="created">
+                Your content is Created!
+            </h1>
+        </div>
+
+        <div *ngIf="!course.mentorsId.includes(user.id)">
+            <small>Sorry, it's not you content ✋ </small>
+        </div>
+
+    </form>
+</div>

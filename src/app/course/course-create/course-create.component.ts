@@ -11,7 +11,6 @@ import {UserService} from "../../user/user.service";
   styleUrls: ['./course-create.component.css']
 })
 export class CourseCreateComponent implements OnInit {
-  isMentor: boolean = false;
   isCreated: boolean = false;
   createForm!: FormGroup;
 
