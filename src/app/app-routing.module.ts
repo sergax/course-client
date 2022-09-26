@@ -11,6 +11,9 @@ import {CourseUpdateComponent} from "./course/course-update/course-update.compon
 import {CourseCreateComponent} from "./course/course-create/course-create.component";
 import {ContentCreateComponent} from "./content/content-create/content-create.component";
 import {CommonModule} from "@angular/common";
+import {ContentComponent} from "./content/content.component";
+import {ContentDetailComponent} from "./content/content-detail/content-detail.component";
+import {ContentUpdateComponent} from "./content/content-update/content-update.component";
 
 let routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -21,6 +24,8 @@ let routes: Routes = [
   {path: 'courses/:id', component: CourseDetailComponent, canActivate: [AuthGuard]},
   {path: 'courses/:id', component: CourseUpdateComponent, canActivate: [AuthGuard]},
   {path: 'courses/:courseId/contents', component: ContentCreateComponent, canActivate: [AuthGuard]},
+  {path: 'courses/contents/:id', component: ContentDetailComponent, canActivate: [AuthGuard]},
+  {path: 'courses/contents/:id', component: ContentUpdateComponent, canActivate: [AuthGuard]},
   {path: '', component: LoginComponent}
 ]
 

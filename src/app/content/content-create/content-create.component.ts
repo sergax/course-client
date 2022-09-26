@@ -55,10 +55,6 @@ export class ContentCreateComponent implements OnInit {
 
     }
 
-    // get courseId() {
-    //     return this.createForm.get('courseId');
-    // }
-
     get name() {
         return this.createForm.get('name');
     }

@@ -1,0 +1,23 @@
+<div class="main-body">
+    <button [routerLink]="['/courses', content.courseId]" mat-button> ⬅</button>
+    <div class="row">
+        <div class="col-md">
+            <div class="card">
+                <div class="card-body">
+                    <button (click)="onUpdateContent(content.id, content.name, content.text, content.movieUrl, mentor)"
+                            mat-button> edit 🔧
+                    </button>
+                    <div class="d-flex flex-column align-items-center text-center">
+                        <h1>{{ content.name }}
+                            <h5>(Content type: {{ content.typeContent }})</h5>
+                        </h1>
+                        <h4>{{ content.text }}</h4>
+                        <iframe [src]="getEmbedUrl(content.movieUrl)" width="600" height="400"
+                                webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                        <h5 class="d-flex align-items-center mb-3">Content Movie</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

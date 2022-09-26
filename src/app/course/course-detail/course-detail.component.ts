@@ -10,6 +10,7 @@ import {DomSanitizer} from "@angular/platform-browser";
 import {UserService} from "../../user/user.service";
 import {CourseCreateComponent} from "../course-create/course-create.component";
 import {ContentCreateComponent} from "../../content/content-create/content-create.component";
+import {ContentService} from "../../content/content.service";
 
 @Component({
   selector: 'app-course-detail',
@@ -18,15 +19,17 @@ import {ContentCreateComponent} from "../../content/content-create/content-creat
 })
 export class CourseDetailComponent implements OnInit {
   href: string = "";
+  id!: number;
   course!: Course;
+  content!: Content;
   courses!: Array<Course>;
   mode: string;
-  id!: number;
 
   constructor(private sanitizer: DomSanitizer,
               private courseService: CourseService,
               private router: Router,
               private dialog: MatDialog,
+              private contentService: ContentService,
               private userService: UserService,
               private activatedRoute: ActivatedRoute) {
   }
@@ -35,6 +38,7 @@ export class CourseDetailComponent implements OnInit {
     this.href = this.router.url;
     this.id = +this.href.split('/')[2];
     this.onGetCourseById(this.id);
+    // this.onGetContentById(this.contentId);
   }
 
   onGetCourseById(id: number) {

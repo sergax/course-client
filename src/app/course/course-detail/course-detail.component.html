@@ -24,16 +24,9 @@
             <div *ngFor="let content of course.contents">
                 <div class="card">
                     <div class="card-body">
-                        <h4>Content ID: {{ content.id }}</h4>
-                        <h4>Content Name: {{ content.name }}</h4>
-                        <h4>Content Text: {{ content.text }}</h4>
-                        <h4>Content Type: {{ content.typeContent }}</h4>
-                        <!--                        <div *ngIf="content.movieUrl.length">-->
-                        <div>
-                            <iframe [src]="getEmbedUrl(content.movieUrl)" width="320" height="200"
-                                    webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                        </div>
-                        <h5 class="d-flex align-items-center mb-3">Content Movie</h5>
+                        <h5>Content ID: {{ content.id }}</h5>
+                        <button [routerLink]="['/courses/contents', content.id]" mat-button> Content
+                            Name: {{ content.name }} </button>
                     </div>
                 </div>
                 <div class="row">

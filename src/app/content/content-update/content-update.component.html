@@ -5,9 +5,9 @@
             (click)="onClose()">
         <mat-icon class="close-icon" color="warn">close</mat-icon>
     </button>
-    <form [formGroup]="createForm" *ngIf="!isCreated">
+    <form [formGroup]="updateForm" *ngIf="!isUpdated">
         <div>
-            <h1>Create content</h1>
+            <h1>Edit Content</h1>
         </div>
         <div class="input-container">
             <input type="string"
@@ -16,6 +16,7 @@
                    required/>
             <label>Name</label>
         </div>
+
         <label>Text</label>
         <div>
             <textarea type="string"
@@ -32,21 +33,24 @@
             <label>Movie</label>
         </div>
 
-        <button class="created_button-1"
-                type="submit"
-                (click)="onCreate()"
-                [disabled]="createForm.invalid">CREATE
-        </button>
-
-        <div *ngIf="isCreated">
-            <h1 class="created">
-                Your content is Created!
-            </h1>
+        <div>
+            <button class="update-button-1"
+                    type="submit"
+                    (click)="onUpdateContent()"
+                    [disabled]="updateForm.invalid">Update
+            </button>
         </div>
-
-        <div *ngIf="!course.mentorsId.includes(user.id)">
-            <small>Sorry, it's not you content ✋ </small>
-        </div>
-
     </form>
+
+    <div *ngIf="isUpdated">
+        <h1 class="updated">
+            Your content is updated 🥰
+        </h1>
+    </div>
+
+    <!--    <div *ngIf="!course.mentorsId.includes(user.id)">-->
+    <!--        <small>Sorry, it's not you content ✋ </small>-->
+    <!--    </div>-->
+
 </div>
+

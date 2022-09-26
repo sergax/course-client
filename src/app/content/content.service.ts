@@ -16,7 +16,7 @@ export class ContentService {
     }
 
     getContentById(id: number): Observable<Content> {
-        return this.http.get<any>(BACKEND_URL + '/' + id);
+        return this.http.get<any>(BACKEND_URL + '/contents/' + id);
     }
 
     createContent(courseId: number,
@@ -34,13 +34,14 @@ export class ContentService {
         });
     }
 
-    updateContentById(contentId: number,
+    updateContentById(id: number,
                       name: string,
                       text: string,
                       movieUrl: string,
                       mentor: User
     ) {
-        return this.http.put<Content>(BACKEND_URL + '/' + contentId, {
+        return this.http.put<Content>(BACKEND_URL + '/contents/' + id, {
+            id: id,
             name: name,
             text: text,
             movieUrl: movieUrl,

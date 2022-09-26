@@ -22,6 +22,8 @@ import {AuthInterceptor} from "./auth/auth-interceptor";
 import {CourseCreateComponent} from "./course/course-create/course-create.component";
 import {ContentComponent} from "./content/content.component";
 import {ContentCreateComponent} from "./content/content-create/content-create.component";
+import {ContentDetailComponent} from "./content/content-detail/content-detail.component";
+import {ContentUpdateComponent} from "./content/content-update/content-update.component";
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import {ContentCreateComponent} from "./content/content-create/content-create.co
     CourseUpdateComponent,
     CourseCreateComponent,
     ContentComponent,
+    ContentDetailComponent,
     ContentCreateComponent,
+    ContentUpdateComponent,
     UserComponent,
   ],
   imports: [

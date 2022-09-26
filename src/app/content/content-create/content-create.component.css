@@ -1,37 +1,43 @@
-.input-container{
-    position:relative;
-    margin-bottom:25px;
+.input-container {
+    position: relative;
+    margin-bottom: 25px;
 }
 
-.input-container label{
-    position:absolute;
-    top:0;
-    left:0;
-    font-size:16px;
-    color:#000000;
+.input-container label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 16px;
+    color: #000000;
     transition: all 0.5s ease-in-out;
 }
-.input-container input{
-    border:0;
-    border-bottom:1px solid #555;
-    background:transparent;
-    width:100%;
-    padding:8px 0 5px 0;
-    font-size:16px;
-    color:#000000;
+
+.input-container input {
+    border: 0;
+    border-bottom: 1px solid #555;
+    background: transparent;
+    width: 100%;
+    padding: 8px 0 5px 0;
+    font-size: 16px;
+    color: #000000;
 }
-.input-container input:focus{
-    border:none;
-    outline:none;
-    border-bottom:2px solid lightskyblue;
+
+.input-container input:focus {
+    border: none;
+    outline: none;
+    border-bottom: 2px solid lightskyblue;
 
 }
 
 .input-container input:focus ~ label,
-.input-container input:valid ~ label{
-    top:-12px;
-    font-size:12px;
+.input-container input:valid ~ label {
+    top: -12px;
+    font-size: 12px;
     color: lightskyblue;
+}
+
+textarea {
+    width : 270px;
 }
 
 small {
@@ -52,10 +58,10 @@ small {
     cursor: pointer;
 }
 
-.close-button{
+.close-button {
     float: right;
-    top:-24px;
-    right:-24px;
+    top: -24px;
+    right: -24px;
 }
 
 .created {
