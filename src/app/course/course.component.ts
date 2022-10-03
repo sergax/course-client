@@ -16,7 +16,7 @@ import {DomSanitizer} from "@angular/platform-browser";
 })
 export class CourseComponent implements OnInit {
   courses!: Array<Course>;
-  mentor!: User;
+  user!: User;
 
   constructor(private sanitizer: DomSanitizer,
     private courseService: CourseService,
@@ -30,8 +30,8 @@ export class CourseComponent implements OnInit {
     );
 
     this.userService.getUser().subscribe(
-      mentor => {
-        this.mentor = mentor;
+        user => {
+        this.user = user;
       }
     );
 
@@ -70,6 +70,10 @@ export class CourseComponent implements OnInit {
         principal: principal
       }
     })
+  }
+
+  onAddStudentToCourse(id: number, principal: User) {
+    this.courseService.addStudentToCourse(id, principal);
   }
 
   onCreate(name: string,

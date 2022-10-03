@@ -7,6 +7,7 @@ import {AuthService} from "./auth/auth.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  isAuth: boolean = false
   title = "Welcome students 🤓"
 
   constructor(
@@ -15,5 +16,10 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.autoAuthUser();
+
+    this.authService.loginSubject.subscribe(value => {
+      this.isAuth = value;
+    })
   }
+
 }

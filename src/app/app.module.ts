@@ -24,15 +24,19 @@ import {ContentComponent} from "./content/content.component";
 import {ContentCreateComponent} from "./content/content-create/content-create.component";
 import {ContentDetailComponent} from "./content/content-detail/content-detail.component";
 import {ContentUpdateComponent} from "./content/content-update/content-update.component";
+import {CourseInfoComponent} from "./course/course-info/course-info.component";
+import {CoursesPublicComponent} from "./course/courses-public/courses-public.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     CourseComponent,
+    CoursesPublicComponent,
     CourseDetailComponent,
     CourseUpdateComponent,
     CourseCreateComponent,
+    CourseInfoComponent,
     ContentComponent,
     ContentDetailComponent,
     ContentCreateComponent,

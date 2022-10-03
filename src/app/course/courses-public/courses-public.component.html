@@ -1,4 +1,4 @@
-<div class="mat-card" *ngFor="let course of courses">
+<div class="mat-card" *ngFor="let course of publicCourses">
     <div class="row row-cols-1 row-cols-md-2 g-4">
         <mat-card class="example-card">
             <mat-card-header>
@@ -17,6 +17,7 @@
                 </mat-card-title>
                 <mat-card-subtitle>
                     <p class="fw-normal mb-1"> Mentor ID: {{ course.mentorsId }}</p>
+                    <p class="fw-normal mb-1"> Status: {{ course.status }}</p>
                 </mat-card-subtitle>
             </mat-card-header>
             <iframe [src]="getEmbedUrl(course.movieUrl)" width="600" height="400"
@@ -24,29 +25,6 @@
             <mat-card-content>
                 <p class="fw-normal mb-1">{{ course.description }}</p>
             </mat-card-content>
-            <mat-card-actions>
-                <td>
-                    <button *ngIf="user.coursesId.length"
-                            (click)="onUpdate(course.id, course.name, course.description, course.logoUrl, course.movieUrl, course.dateStart, course.dateEnd,
-        course.status, user)" mat-button>edit 🔧
-                    </button>
-                </td>
-                <td>
-                    <button [routerLink]="['/courses', course.id]" (click)="onAddStudentToCourse(course.id, user)" mat-button>view 🔍</button>
-                </td>
-            </mat-card-actions>
         </mat-card>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-

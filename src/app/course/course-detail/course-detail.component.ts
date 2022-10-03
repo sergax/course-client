@@ -13,70 +13,81 @@ import {ContentCreateComponent} from "../../content/content-create/content-creat
 import {ContentService} from "../../content/content.service";
 
 @Component({
-  selector: 'app-course-detail',
-  templateUrl: './course-detail.component.html',
-  styleUrls: ['./course-detail.component.css']
+    selector: 'app-course-detail',
+    templateUrl: './course-detail.component.html',
+    styleUrls: ['./course-detail.component.css']
 })
 export class CourseDetailComponent implements OnInit {
-  href: string = "";
-  id!: number;
-  course!: Course;
-  content!: Content;
-  courses!: Array<Course>;
-  mode: string;
+    href: string = "";
+    id!: number;
+    course!: Course;
+    content!: Content;
+    courses!: Array<Course>;
+    mode: string;
+    user!: User;
 
-  constructor(private sanitizer: DomSanitizer,
-              private courseService: CourseService,
-              private router: Router,
-              private dialog: MatDialog,
-              private contentService: ContentService,
-              private userService: UserService,
-              private activatedRoute: ActivatedRoute) {
-  }
+    constructor(private sanitizer: DomSanitizer,
+                private courseService: CourseService,
+                private router: Router,
+                private dialog: MatDialog,
+                private contentService: ContentService,
+                private userService: UserService,
+                private activatedRoute: ActivatedRoute) {
+    }
 
-  ngOnInit(): void {
-    this.href = this.router.url;
-    this.id = +this.href.split('/')[2];
-    this.onGetCourseById(this.id);
-    // this.onGetContentById(this.contentId);
-  }
+    ngOnInit(): void {
+        this.href = this.router.url;
+        this.id = +this.href.split('/')[2];
+        this.onGetCourseById(this.id);
 
-  onGetCourseById(id: number) {
-    this.courseService.getCourseById(id).subscribe(
-      course => {
-        this.course = course;
-      }
-    );
-  }
+        this.userService.getUser().subscribe(
+            user => {
+                this.user = user;
+            }
+        )
+    }
 
-  onUpdateCourseById(id: number, course: Course, mentor: User) {
-    this.courseService.getCourseById(id).subscribe(
-      course => {
-        this.course = course;
-      }
-    );
-  }
+    onGetCourseById(id: number) {
+        this.courseService.getCourseById(id).subscribe(
+            course => {
+                this.course = course;
+            }
+        );
+    }
 
-  getEmbedUrl(url: string) {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
-  }
+    onUpdateCourseById(id: number, course: Course, mentor: User) {
+        this.courseService.getCourseById(id).subscribe(
+            course => {
+                this.course = course;
+            }
+        );
+    }
 
-  onCreateContent() {
-    this.dialog.open(ContentCreateComponent, {
-      width: '330px',
-      disableClose: true,
-      data: {
-      }
-    })
-  }
+    getEmbedUrl(url: string) {
+        return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    }
 
-  onGetContents(): Array<Content> {
-    return this.course.contents;
-  }
+    onCreateContent() {
+        this.dialog.open(ContentCreateComponent, {
+            width: '330px',
+            disableClose: true,
+            data: {}
+        })
+    }
 
-  changeMode(mode: string) {
+    onAddLikesToCourse(id: number,
+                       likes: boolean,
+                       principal: User) {
+        this.courseService.addLikesToCourseByStudentId(id, likes, principal);
+    }
 
-  }
+    onGetContents(): Array<Content> {
+        return this.course.contents;
+    }
+
+    changeMode(mode: string) {
+
+    }
 }
 
 // onUpdate(id: bigint) {

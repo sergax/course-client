@@ -1,10 +1,16 @@
 <div class="container mt-4 mb-4">
-  <div class="row">
-    <div class="col-xs-12">
-      <h2>{{ title }}</h2>
-      <hr>
-      <app-navbar></app-navbar>
-      <router-outlet></router-outlet>
+    <div class="row">
+        <div class="col-xs-12">
+            <h2>{{ title }}</h2>
+            <div
+                    *ngIf="!isAuth">
+                <small> Please login, if you want to see or create new courses!
+                    <br>
+                    (Now, you can see only PUBLIC courses)
+                </small>
+            </div>
+            <app-navbar></app-navbar>
+            <router-outlet></router-outlet>
+        </div>
     </div>
-  </div>
 </div>

@@ -20,12 +20,14 @@ import {Course} from "../../model/course.model";
 export class ContentDetailComponent implements OnInit {
     mentor!: User;
     content!: Content;
+    course!: Course;
     href: string = "";
     id!: number;
     isUpdated: boolean = false;
 
     constructor(private dialog: MatDialog,
                 private contentService: ContentService,
+                private courseService: CourseService,
                 private userService: UserService,
                 private router: Router,
                 private sanitizer: DomSanitizer) {
@@ -38,6 +40,12 @@ export class ContentDetailComponent implements OnInit {
         this.userService.getUser().subscribe(
             mentor => {
                 this.mentor = mentor;
+            }
+        )
+
+        this.courseService.getCourseById(this.content.courseId).subscribe(
+            course => {
+                this.course = course;
             }
         )
 

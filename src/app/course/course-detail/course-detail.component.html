@@ -12,8 +12,13 @@
                             <h4>{{ course.description }}</h4>
                             <!--                            <p class="text-secondary mb-1">{{ course.status }}</p>-->
                             <!--                            <p class="text-muted font-size-sm">ID: {{ course.id }}</p>-->
-                            <button [routerLink]="['/courses', id, '/contents']" (click)=onCreateContent() mat-button> ➕
+                            <button *ngIf="user.coursesId.length"
+                                    [routerLink]="['/courses', id, '/contents']" (click)=onCreateContent() mat-button> ➕
                                 content
+                            </button>
+                            <button *ngIf="!user.coursesId.length"
+                                    (click)="onAddLikesToCourse(course.id, true, user)" mat-button>
+                                like ❤
                             </button>
                         </div>
                     </div>

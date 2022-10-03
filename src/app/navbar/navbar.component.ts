@@ -1,9 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../auth/auth.service";
-import {EventEmitterService} from "./event-emitter.service";
-import {Course} from "../model/course.model";
 import {CourseService} from "../course/course.service";
-import {User} from "../model/user.model";
 import {CourseCreateComponent} from "../course/course-create/course-create.component";
 import {MatDialog} from "@angular/material/dialog";
 
@@ -28,7 +25,6 @@ export class NavbarComponent implements OnInit {
   }
 
   onLogout() {
-    ``
     this.authService.logout();
   }
 
