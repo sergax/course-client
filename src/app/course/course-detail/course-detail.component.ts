@@ -1,6 +1,5 @@
 import {Component, OnInit} from "@angular/core";
 import {MatDialog} from "@angular/material/dialog";
-import {Observable} from "rxjs";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {User} from "../../model/user.model";
 import {Course} from "../../model/course.model";
@@ -8,7 +7,6 @@ import {CourseService} from "../course.service";
 import {Content} from "../../model/content.model";
 import {DomSanitizer} from "@angular/platform-browser";
 import {UserService} from "../../user/user.service";
-import {CourseCreateComponent} from "../course-create/course-create.component";
 import {ContentCreateComponent} from "../../content/content-create/content-create.component";
 import {ContentService} from "../../content/content.service";
 
@@ -18,6 +16,7 @@ import {ContentService} from "../../content/content.service";
     styleUrls: ['./course-detail.component.css']
 })
 export class CourseDetailComponent implements OnInit {
+    likes!: number;
     href: string = "";
     id!: number;
     course!: Course;
@@ -31,14 +30,14 @@ export class CourseDetailComponent implements OnInit {
                 private router: Router,
                 private dialog: MatDialog,
                 private contentService: ContentService,
-                private userService: UserService,
-                private activatedRoute: ActivatedRoute) {
+                private userService: UserService) {
     }
 
     ngOnInit(): void {
         this.href = this.router.url;
         this.id = +this.href.split('/')[2];
         this.onGetCourseById(this.id);
+        this.onGetLikes(this.id);
 
         this.userService.getUser().subscribe(
             user => {
@@ -53,6 +52,14 @@ export class CourseDetailComponent implements OnInit {
                 this.course = course;
             }
         );
+    }
+
+    onGetLikes(id: number) {
+        this.courseService.getLikesByCourseId(id).subscribe(
+            likes => {
+                this.likes = likes
+            }
+        )
     }
 
     onUpdateCourseById(id: number, course: Course, mentor: User) {
@@ -76,9 +83,8 @@ export class CourseDetailComponent implements OnInit {
     }
 
     onAddLikesToCourse(id: number,
-                       likes: boolean,
                        principal: User) {
-        this.courseService.addLikesToCourseByStudentId(id, likes, principal);
+        this.courseService.addLikesToCourseByStudentId(id, principal);
     }
 
     onGetContents(): Array<Content> {

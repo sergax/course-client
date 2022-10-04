@@ -15,6 +15,7 @@ import {DomSanitizer} from "@angular/platform-browser";
   styleUrls: ['./course.component.css']
 })
 export class CourseComponent implements OnInit {
+  course!: Course;
   courses!: Array<Course>;
   user!: User;
 
@@ -44,6 +45,14 @@ export class CourseComponent implements OnInit {
 
   getEmbedUrl(url: string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+
+  onGetCourseById(id: number) {
+    this.courseService.getCourseById(id).subscribe(
+        course => {
+          this.course = course;
+        }
+    );
   }
 
   onUpdate(id: number,

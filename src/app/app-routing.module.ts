@@ -28,6 +28,7 @@ let routes: Routes = [
   {path: 'courses/:id', component: CourseDetailComponent, canActivate: [AuthGuard]},
   {path: 'courses/:id', component: CourseUpdateComponent, canActivate: [AuthGuard]},
   {path: 'courses/:id/students', component: CourseInformation, canActivate: [AuthGuard]},
+  {path: 'courses/:id/info', component: CourseInformation, canActivate: [AuthGuard]},
   {path: 'courses/:courseId/contents', component: ContentCreateComponent, canActivate: [AuthGuard]},
   {path: 'courses/contents/:id', component: ContentDetailComponent, canActivate: [AuthGuard]},
   {path: 'courses/contents/:id', component: ContentUpdateComponent, canActivate: [AuthGuard]},

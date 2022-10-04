@@ -26,7 +26,11 @@ export class CourseService {
     }
 
     getCourseById(id: number): Observable<Course> {
-        return this.http.get<any>(BACKEND_URL + '/' + id);
+        return this.http.get<Course>(BACKEND_URL + '/' + id);
+    }
+
+    getLikesByCourseId(id: number) {
+        return this.http.get<number>(BACKEND_URL + '/' + id + "/likes")
     }
 
     createCourse(name: string,
@@ -72,21 +76,18 @@ export class CourseService {
     addStudentToCourse(id: number,
                        student: User
     ) {
-        return this.http.patch<CourseInformation>(BACKEND_URL + '/' + id + '/students', {
-            id,
+         this.http.patch<CourseInformation>(BACKEND_URL + '/' + id + '/students', {
             student
-        });
+        }).subscribe();
     }
 
     addLikesToCourseByStudentId(id: number,
-                                likes: boolean,
                                 student: User
     ) {
-        return this.http.patch<CourseInformation>(BACKEND_URL + '/' + id + '/info', {
-            id,
-            likes,
+        this.http.patch<CourseInformation>(BACKEND_URL + '/' + id + '/info', {
             student
-        });
+        }).subscribe();
+        window.location.reload();
     }
 
 

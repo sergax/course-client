@@ -17,8 +17,9 @@
                                 content
                             </button>
                             <button *ngIf="!user.coursesId.length"
-                                    (click)="onAddLikesToCourse(course.id, true, user)" mat-button>
+                                    (click)="onAddLikesToCourse(course.id, user)" mat-button>
                                 like ❤
+                                <small>{{ likes }}</small>
                             </button>
                         </div>
                     </div>
