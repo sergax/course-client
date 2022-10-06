@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
 import {environment} from "../../environments/environment";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {map, Observable} from "rxjs";
 import {User} from "../model/user.model";
 import {Content} from "../model/content.model";
+import {ContentInformation} from "../model/contentinformation.model";
 
 const BACKEND_URL = environment.apiUrl + '/v1/courses';
 
@@ -13,6 +14,7 @@ const BACKEND_URL = environment.apiUrl + '/v1/courses';
 export class ContentService {
 
     constructor(private http: HttpClient) {
+
     }
 
     getContentById(id: number): Observable<Content> {
@@ -47,6 +49,16 @@ export class ContentService {
             movieUrl: movieUrl,
             mentor: mentor
         });
+    }
+
+    passedContentByStudentId(contentId: number, student: User) {
+        this.http.post<ContentInformation>(BACKEND_URL + '/contents/' + contentId, {
+            student: student
+        }).subscribe();
+    }
+
+    getProgressByStudent(courseId: number) {
+        return this.http.get<any>(BACKEND_URL + "/" + courseId + '/progress')
     }
 
 

@@ -24,6 +24,7 @@ export class CourseDetailComponent implements OnInit {
     courses!: Array<Course>;
     mode: string;
     user!: User;
+    progress!: number;
 
     constructor(private sanitizer: DomSanitizer,
                 private courseService: CourseService,
@@ -38,6 +39,7 @@ export class CourseDetailComponent implements OnInit {
         this.id = +this.href.split('/')[2];
         this.onGetCourseById(this.id);
         this.onGetLikes(this.id);
+        this.onGetProgressByStudent(this.id)
 
         this.userService.getUser().subscribe(
             user => {
@@ -62,14 +64,6 @@ export class CourseDetailComponent implements OnInit {
         )
     }
 
-    onUpdateCourseById(id: number, course: Course, mentor: User) {
-        this.courseService.getCourseById(id).subscribe(
-            course => {
-                this.course = course;
-            }
-        );
-    }
-
     getEmbedUrl(url: string) {
         return this.sanitizer.bypassSecurityTrustResourceUrl(url);
     }
@@ -87,35 +81,17 @@ export class CourseDetailComponent implements OnInit {
         this.courseService.addLikesToCourseByStudentId(id, principal);
     }
 
-    onGetContents(): Array<Content> {
-        return this.course.contents;
+    onPassedContentByStudent(contentId: number,
+                             principal: User) {
+        this.contentService.passedContentByStudentId(contentId, principal);
     }
 
-    changeMode(mode: string) {
-
+    onGetProgressByStudent(courseId: number) {
+        this.contentService.getProgressByStudent(courseId).subscribe(
+            progress => {
+                this.progress = progress
+            }
+        );
     }
+
 }
-
-// onUpdate(id: bigint) {
-//   this.dialog.open(UpdateSlotComponent, {
-//     width: '330px',
-//     disableClose: true,
-//     data: {
-//       groupLimit: groupLimit,
-//       id: id
-//     }
-//   })
-// }
-
-// onCreate() {
-//   this.dialog.open(CreateSlotComponent, {
-//     width: '330px',
-//     disableClose: true,
-//     data: {}
-//   })
-// }
-
-// onDelete(id: bigint) {
-//   this.slotService.delete(id);
-// }
-

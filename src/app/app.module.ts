@@ -26,6 +26,7 @@ import {ContentDetailComponent} from "./content/content-detail/content-detail.co
 import {ContentUpdateComponent} from "./content/content-update/content-update.component";
 import {CourseInfoComponent} from "./course/course-info/course-info.component";
 import {CoursesPublicComponent} from "./course/courses-public/courses-public.component";
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 @NgModule({
   declarations: [
@@ -53,8 +54,18 @@ import {CoursesPublicComponent} from "./course/courses-public/courses-public.com
     FormsModule,
     AuthModule,
     BrowserAnimationsModule,
-    MatSelectModule
+    MatSelectModule,
+    NgCircleProgressModule.forRoot({
+      // set defaults here
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300
+    })
   ],
+
   providers: [
     AuthService,
     CourseService,
