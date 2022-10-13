@@ -2,7 +2,6 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {CourseService} from "../course.service";
 import {FormControl, FormGroup} from "@angular/forms";
-import {User} from "../../model/user.model";
 import {UserService} from "../../user/user.service";
 
 @Component({
