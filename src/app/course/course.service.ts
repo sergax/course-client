@@ -7,7 +7,6 @@ import {User} from "../model/user.model";
 import {CourseInformation} from "../model/courseinformation.model";
 
 const BACKEND_URL = environment.apiUrl + '/v1/courses';
-const BACKEND_URL_AUTH = environment.apiUrl + '/v1/auth';
 
 @Injectable({
     providedIn: 'root'
@@ -22,7 +21,7 @@ export class CourseService {
     }
 
     getPublicCourses() {
-        return this.http.get<Array<Course>>(BACKEND_URL_AUTH + "/public/courses");
+        return this.http.get<Array<Course>>(BACKEND_URL + "/public");
     }
 
     getCourseById(id: number): Observable<Course> {
