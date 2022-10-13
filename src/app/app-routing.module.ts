@@ -23,7 +23,7 @@ let routes: Routes = [
   {path: 'registration', component: RegistrationComponent},
   {path: 'confirmation', component: EmailConfirmationComponent},
   {path: 'courses', component: CourseComponent, canActivate: [AuthGuard]},
-  {path: 'public/courses', component: CoursesPublicComponent, canActivate: [AuthGuard]},
+  {path: 'public', component: CoursesPublicComponent, canActivate: [AuthGuard]},
   {path: 'courses', component: CourseCreateComponent, canActivate: [AuthGuard]},
   {path: 'courses/:id', component: CourseDetailComponent, canActivate: [AuthGuard]},
   {path: 'courses/:id', component: CourseUpdateComponent, canActivate: [AuthGuard]},
