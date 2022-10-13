@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {provideRouter, RouterModule, Routes} from "@angular/router";
+import {RouterModule, Routes} from "@angular/router";
 import {AuthGuard} from "./auth/auth.guard";
 
 import {LoginComponent} from "./auth/login/login.component";
@@ -11,12 +11,10 @@ import {CourseUpdateComponent} from "./course/course-update/course-update.compon
 import {CourseCreateComponent} from "./course/course-create/course-create.component";
 import {ContentCreateComponent} from "./content/content-create/content-create.component";
 import {CommonModule} from "@angular/common";
-import {ContentComponent} from "./content/content.component";
 import {ContentDetailComponent} from "./content/content-detail/content-detail.component";
 import {ContentUpdateComponent} from "./content/content-update/content-update.component";
 import {CourseInformation} from "./model/courseinformation.model";
 import {CoursesPublicComponent} from "./course/courses-public/courses-public.component";
-
 
 let routes: Routes = [
   {path: 'login', component: LoginComponent},
