@@ -17,27 +17,27 @@ import {CourseInformation} from "./model/courseinformation.model";
 import {CoursesPublicComponent} from "./course/courses-public/courses-public.component";
 
 let routes: Routes = [
-  {path: 'login', component: LoginComponent},
-  {path: 'registration', component: RegistrationComponent},
-  {path: 'confirmation', component: EmailConfirmationComponent},
-  {path: 'courses', component: CourseComponent, canActivate: [AuthGuard]},
-  {path: 'courses', component: CourseCreateComponent, canActivate: [AuthGuard]},
-  {path: 'courses/:id', component: CourseDetailComponent, canActivate: [AuthGuard]},
-  {path: 'courses/:id', component: CourseUpdateComponent, canActivate: [AuthGuard]},
-  {path: 'courses/:id/students', component: CourseInformation, canActivate: [AuthGuard]},
-  {path: 'courses/:id/info', component: CourseInformation, canActivate: [AuthGuard]},
-  {path: 'courses/:courseId/contents', component: ContentCreateComponent, canActivate: [AuthGuard]},
-  {path: 'courses/contents/:id', component: ContentDetailComponent, canActivate: [AuthGuard]},
-  {path: 'courses/contents/:id', component: ContentUpdateComponent, canActivate: [AuthGuard]},
-  {path: '', component: CoursesPublicComponent}
+    {path: 'login', component: LoginComponent},
+    {path: 'registration', component: RegistrationComponent},
+    {path: 'confirmation', component: EmailConfirmationComponent},
+    {path: 'courses', component: CourseComponent, canActivate: [AuthGuard]},
+    {path: 'courses', component: CourseCreateComponent, canActivate: [AuthGuard]},
+    {path: 'courses/:id', component: CourseDetailComponent, canActivate: [AuthGuard]},
+    {path: 'courses/:id', component: CourseUpdateComponent, canActivate: [AuthGuard]},
+    {path: 'courses/:id/students', component: CourseInformation, canActivate: [AuthGuard]},
+    {path: 'courses/:id/info', component: CourseInformation, canActivate: [AuthGuard]},
+    {path: 'courses/:courseId/contents', component: ContentCreateComponent, canActivate: [AuthGuard]},
+    {path: 'courses/contents/:id', component: ContentDetailComponent, canActivate: [AuthGuard]},
+    {path: 'courses/contents/:id', component: ContentUpdateComponent, canActivate: [AuthGuard]},
+    {path: '', component: CoursesPublicComponent}
 ]
 
 @NgModule({
-  imports: [
-      CommonModule,
-      RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-  providers: [AuthGuard]
+    imports: [
+        CommonModule,
+        RouterModule.forRoot(routes)],
+    exports: [RouterModule],
+    providers: [AuthGuard]
 })
 export class AppRoutingModule {
 

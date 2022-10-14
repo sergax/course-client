@@ -73,7 +73,7 @@ export class AuthService {
     this.isAdmin = false;
     AuthService.clearAuthData();
     window.location.reload();
-    location.href = "auth/public/courses";
+    location.href = '';
   }
 
   private saveAuthData(token: string, role: string) {

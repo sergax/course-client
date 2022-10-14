@@ -32,6 +32,8 @@ export class LoginComponent implements OnInit {
             this.isAuthorized = value;
             if (value) {
                 this.router.navigate(['courses']);
+            } else {
+                this.router.navigate(['']);
             }
         })
     }
