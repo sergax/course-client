@@ -12,7 +12,7 @@ const BACKEND_URL = environment.apiUrl + '/v1';
 
 @Injectable()
 export class AuthService {
-    public isLoggedIn: boolean = true;
+    public isLoggedOut: boolean = true;
     private token!: string;
     private isAuthenticated: boolean = false;
     private role!: string;
@@ -60,7 +60,7 @@ export class AuthService {
                     this.saveUserData(user.id);
                 });
         }, error => {
-            this.isLoggedIn = false
+            this.isLoggedOut = false
             this.authStatusListener.next(false);
         });
 
