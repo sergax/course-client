@@ -17,7 +17,7 @@ export class CourseService {
     }
 
     getCourses() {
-        return this.http.get<Array<Course>>(BACKEND_URL + '/all');
+        return this.http.get<Array<Course>>(BACKEND_URL);
     }
 
     getPublicCourses() {

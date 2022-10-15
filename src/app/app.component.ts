@@ -16,7 +16,6 @@ export class AppComponent implements OnInit {
 
     ngOnInit(): void {
         this.authService.autoAuthUser();
-
         this.authService.loginSubject.subscribe(value => {
             this.isAuth = value;
         })

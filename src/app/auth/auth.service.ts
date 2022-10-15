@@ -52,11 +52,12 @@ export class AuthService {
                 this.authStatusListener.next(true);
                 this.isAdmin = role.toString().includes('ADMIN');
                 this.saveAuthData(token, role);
-                this.router.navigate(['courses']);
+                location.href = 'courses'
+                // this.router.navigate(['courses']);
             }
             this.http.get<User>(BACKEND_URL + '/users')
                 .subscribe(user => {
-                    this._loginSubject.next(true);
+                    // this._loginSubject.next(true);
                     this.saveUserData(user.id);
                 });
         }, error => {

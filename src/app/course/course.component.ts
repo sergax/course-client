@@ -24,22 +24,20 @@ export class CourseComponent implements OnInit {
     private userService: UserService,
     private dialog: MatDialog) {
 
+  }
+
+  ngOnInit(): void {
     this.courseService.getCourses().subscribe(
-      courses => {
-        this.courses = courses;
-      }
+        courses => {
+          this.courses = courses;
+        }
     );
 
     this.userService.getUser().subscribe(
         user => {
-        this.user = user;
-      }
+          this.user = user;
+        }
     );
-
-  }
-
-  ngOnInit(): void {
-
 
   }
 
