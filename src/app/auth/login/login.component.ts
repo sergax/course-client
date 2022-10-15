@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../auth.service";
-import {Router} from "@angular/router";
+import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Component({
     selector: 'auth-login',
@@ -10,12 +10,9 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
     isLoading = false;
-    isAuthorized = true;
-
     exform!: FormGroup;
 
-    constructor(public authService: AuthService,
-                private router: Router) {
+    constructor(public authService: AuthService) {
     }
 
     ngOnInit() {
@@ -28,14 +25,6 @@ export class LoginComponent implements OnInit {
     onLogin() {
         this.isLoading = true;
         this.authService.login(this.exform.value.email, this.exform.value.password);
-        this.authService.loginSubject.subscribe(value => {
-            this.isAuthorized = value;
-            if (value) {
-                this.router.navigate(['courses']);
-            } else {
-                this.router.navigate(['']);
-            }
-        })
     }
 
     get email() {
