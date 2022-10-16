@@ -19,11 +19,6 @@ export class AppComponent implements OnInit {
         this.authService.loginSubject.subscribe(value => {
             this.isAuth = value;
         })
-
-        let win = (window as any);
-        if(win.location.search !== '?loaded' ) {
-            win.location.search = '?loaded';
-        }
     }
 
 }
