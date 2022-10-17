@@ -26,53 +26,59 @@ import {ContentDetailComponent} from "./content/content-detail/content-detail.co
 import {ContentUpdateComponent} from "./content/content-update/content-update.component";
 import {CourseInfoComponent} from "./course/course-info/course-info.component";
 import {CoursesPublicComponent} from "./course/courses-public/courses-public.component";
-import { NgCircleProgressModule } from 'ng-circle-progress';
+import {NgCircleProgressModule} from 'ng-circle-progress';
+import {LoadingInterceptor} from "./loading/loadingnterceptor.service";
+import {LoadingService} from "./loading/loading.service";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    CourseComponent,
-    CoursesPublicComponent,
-    CourseDetailComponent,
-    CourseUpdateComponent,
-    CourseCreateComponent,
-    CourseInfoComponent,
-    ContentComponent,
-    ContentDetailComponent,
-    ContentCreateComponent,
-    ContentUpdateComponent,
-    UserComponent,
-  ],
-  imports: [
-    AngularMaterialModule,
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    CommonModule,
-    UserModule,
-    FormsModule,
-    AuthModule,
-    BrowserAnimationsModule,
-    MatSelectModule,
-    NgCircleProgressModule.forRoot({
-      // set defaults here
-      radius: 100,
-      outerStrokeWidth: 16,
-      innerStrokeWidth: 8,
-      outerStrokeColor: "#78C000",
-      innerStrokeColor: "#C7E596",
-      animationDuration: 300
-    })
-  ],
+    declarations: [
+        AppComponent,
+        NavbarComponent,
+        CourseComponent,
+        CoursesPublicComponent,
+        CourseDetailComponent,
+        CourseUpdateComponent,
+        CourseCreateComponent,
+        CourseInfoComponent,
+        ContentComponent,
+        ContentDetailComponent,
+        ContentCreateComponent,
+        ContentUpdateComponent,
+        UserComponent,
+    ],
+    imports: [
+        AngularMaterialModule,
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        CommonModule,
+        UserModule,
+        FormsModule,
+        AuthModule,
+        BrowserAnimationsModule,
+        MatSelectModule,
+        NgCircleProgressModule.forRoot({
+            // set defaults here
+            radius: 100,
+            outerStrokeWidth: 16,
+            innerStrokeWidth: 8,
+            outerStrokeColor: "#78C000",
+            innerStrokeColor: "#C7E596",
+            animationDuration: 300
+        }),
+        MatProgressBarModule
+    ],
 
-  providers: [
-    AuthService,
-    CourseService,
-    UserService,
-    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
-  ],
-  bootstrap: [AppComponent]
+    providers: [
+        AuthService,
+        CourseService,
+        UserService,
+        LoadingService,
+        {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+        {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }

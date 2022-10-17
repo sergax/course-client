@@ -15,6 +15,7 @@ import {ContentDetailComponent} from "./content/content-detail/content-detail.co
 import {ContentUpdateComponent} from "./content/content-update/content-update.component";
 import {CourseInformation} from "./model/courseinformation.model";
 import {CoursesPublicComponent} from "./course/courses-public/courses-public.component";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 let routes: Routes = [
     {path: 'login', component: LoginComponent},
@@ -35,7 +36,8 @@ let routes: Routes = [
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forRoot(routes)],
+        RouterModule.forRoot(routes),
+        MatProgressSpinnerModule],
     exports: [RouterModule],
     providers: [AuthGuard]
 })

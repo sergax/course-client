@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "./auth/auth.service";
+import {LoadingService} from "./loading/loading.service";
 
 @Component({
     selector: 'app-root',
@@ -7,11 +8,13 @@ import {AuthService} from "./auth/auth.service";
     styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+    isLoading: boolean = false
     isAuth: boolean = false
     title = "Welcome students 🤓"
 
     constructor(
-        private authService: AuthService) {
+        private authService: AuthService,
+        public loadingService: LoadingService) {
     }
 
     ngOnInit(): void {
@@ -19,6 +22,9 @@ export class AppComponent implements OnInit {
         this.authService.loginSubject.subscribe(value => {
             this.isAuth = value;
         })
+        this.loadingService.isLoading.subscribe(value =>
+            this.isLoading = value
+        )
     }
 
 }
