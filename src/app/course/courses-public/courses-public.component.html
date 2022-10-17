@@ -20,8 +20,8 @@
                     <p class="fw-normal mb-1"> Status: {{ course.status }}</p>
                 </mat-card-subtitle>
             </mat-card-header>
-            <iframe [src]="getEmbedUrl(course.movieUrl)" width="600" height="400"
-                    webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            <iframe [src]="getEmbedUrl(course.movieUrl)" allowfullscreen height="400"
+                    mozallowfullscreen webkitallowfullscreen width="600"></iframe>
             <mat-card-content>
                 <p class="fw-normal mb-1">{{ course.description }}</p>
             </mat-card-content>

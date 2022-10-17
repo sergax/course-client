@@ -1,6 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {MatDialog} from "@angular/material/dialog";
-import {ActivatedRoute, ParamMap, Router} from "@angular/router";
+import {Router} from "@angular/router";
 import {User} from "../../model/user.model";
 import {Course} from "../../model/course.model";
 import {CourseService} from "../course.service";
@@ -79,6 +79,7 @@ export class CourseDetailComponent implements OnInit {
     onAddLikesToCourse(id: number,
                        principal: User) {
         this.courseService.addLikesToCourseByStudentId(id, principal);
+        window.location.reload()
     }
 
     onPassedContentByStudent(contentId: number,

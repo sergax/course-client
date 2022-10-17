@@ -17,8 +17,8 @@ export class CoursesPublicComponent implements OnInit {
 
     ngOnInit(): void {
         this.courseService.getPublicCourses().subscribe(
-            publicCourses => {
-                this.publicCourses = publicCourses;
+            value => {
+                this.publicCourses = value;
             }
         )
     }

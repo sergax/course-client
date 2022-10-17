@@ -52,8 +52,7 @@ export class AuthService {
                 this.authStatusListener.next(true);
                 this.isAdmin = role.toString().includes('ADMIN');
                 this.saveAuthData(token, role);
-                location.href = ''
-                // this.router.navigate(['courses']);
+                location.href = 'courses'
             }
             this.http.get<User>(BACKEND_URL + '/users')
                 .subscribe(user => {

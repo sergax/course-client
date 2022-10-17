@@ -2,17 +2,16 @@
     <div class="row">
         <div class="col-xs-12">
             <h2>{{ title }}</h2>
-            <div
-                    *ngIf="!isAuth">
+            <div *ngIf="!isAuth">
                 <small> Please login, if you want to see or create new courses!
                     <br>
                     (Now, you can see only PUBLIC courses)
                 </small>
             </div>
             <app-navbar></app-navbar>
+            <mat-progress-bar mode="indeterminate" color="accent"
+                              *ngIf="loadingService.isLoading | async"></mat-progress-bar>
             <router-outlet></router-outlet>
-            <mat-progress-bar mode="indeterminate" color="accent" *ngIf="loadingService.isLoading | async">
-            </mat-progress-bar>
         </div>
     </div>
 </div>

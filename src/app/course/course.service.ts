@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
-import {map, Observable} from "rxjs";
+import {Observable} from "rxjs";
 import {Course} from "../model/course.model";
 import {User} from "../model/user.model";
 import {CourseInformation} from "../model/courseinformation.model";
@@ -20,7 +20,7 @@ export class CourseService {
         return this.http.get<Array<Course>>(BACKEND_URL);
     }
 
-    getPublicCourses() {
+    getPublicCourses(): Observable<Array<Course>> {
         return this.http.get<Array<Course>>(BACKEND_URL + "/public");
     }
 
