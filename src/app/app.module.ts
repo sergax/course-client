@@ -60,7 +60,7 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
         MatSelectModule,
         NgCircleProgressModule.forRoot({
             // set defaults here
-            radius: 100,
+            radius: 60,
             outerStrokeWidth: 16,
             innerStrokeWidth: 8,
             outerStrokeColor: "#78C000",
