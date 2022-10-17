@@ -10,7 +10,7 @@
                         <div class="mt-3">
                             <h4>{{ course.name }}</h4>
                             <h4>{{ course.description }}</h4>
-                            <button *ngIf="user.coursesId.length"
+                            <button *ngIf="user.coursesId.includes(course.id)"
                                     [routerLink]="['/courses', id, '/contents']" (click)=onCreateContent() mat-button> ➕
                                 content
                             </button>
