@@ -14,7 +14,7 @@
                                     [routerLink]="['/courses', id, '/contents']" (click)=onCreateContent() mat-button> ➕
                                 content
                             </button>
-                            <button
+                            <button *ngIf="!user.coursesId.length"
                                     (click)="onAddLikesToCourse(course.id, user)" mat-button>
                                 like ❤
                                 <small>{{ likes }}</small>
