@@ -15,13 +15,13 @@ export class NavbarComponent implements OnInit {
   constructor(private authService: AuthService,
               private courseService: CourseService,
               private dialog: MatDialog) {
-    this.authService.loginSubject.subscribe(value => {
-      this.isAuth = value;
-    })
+
   }
 
   ngOnInit(): void {
-
+    this.authService.loginSubject.subscribe(value => {
+      this.isAuth = value;
+    })
   }
 
   onLogout() {

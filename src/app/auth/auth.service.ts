@@ -56,7 +56,7 @@ export class AuthService {
             }
             this.http.get<User>(BACKEND_URL + '/users')
                 .subscribe(user => {
-                    // this._loginSubject.next(true);
+                    this._loginSubject.next(true);
                     this.saveUserData(user.id);
                 });
         }, error => {

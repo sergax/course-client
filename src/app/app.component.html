@@ -2,6 +2,13 @@
     <div class="row">
         <div class="col-xs-12">
             <h2>{{ title }}</h2>
+            <h5 *ngIf="isAuth">
+                User:
+                <br>
+                ID: {{ user.id}}
+                <br>
+                e-mail: {{ user.email }}</h5>
+
             <div *ngIf="!isAuth">
                 <small> Please login, if you want to see or create new courses!
                     <br>
